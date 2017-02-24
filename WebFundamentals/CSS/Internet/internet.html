@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Internet CSS Practice Page</title>
+	<link rel="stylesheet" type="text/css" href="internet.css">
+</head>
+<body>
+	<div class="container">
+		<div class="header">
+			<img id="globe" src="globe.png" alt="globepicture">
+			<h1 class="int">The Internet</h1>
+		</div>
+		<h1 class="subhead">The World Wide Web</h1>
+		<div class="sidebar">
+			<p class="sidebtext"><strong>So, what's an <span id="red">Internet?</span></strong></p>
+			<p class="sidebtext"><strong>An interconnected Network of computers all around the world!</strong></p>
+			<button id="bluebtn" style="button">WATCH A VIDEO</button>
+			<button id="orangebtn" style="button">MORE RESOURCES</button>
+			<hr>
+			<div class="sidebtm">
+				<h3 class="sidetext">Reinvent your career in just 14 weeks</h3>
+				<img id="ninja" src="ninja.png" alt="ninjapic">
+				<button id="learn" style="button">Learn More >>></button>
+			</div>
+		</div>
+		<div class="body">
+			<div class="one">
+				<img id="home" src="home.png" alt="house pic">
+				<p id="dns">DNS</p>
+				<img id="phone" src="phone.png" alt="picture of phone">
+					<div class="info">
+						<p class="phonetxt">Mon-Fri 9a.m. - 5 p.m. (EST)</p>
+						<h3 id="phonenum">855.967.3787</h3>
+						<p class="phonetxt">International +1.617.963.0555</p>
+					</div>
+			</div>
+			<div class="two">
+				<h4 class="titles">Clients and Servers</h4>
+				<p class="text">Computers connected to the <span class="linkb">Web</span> are called <strong>clients</strong> and <strong>servers</strong></p>
+				<ul>
+					<li class="text"><span class="linkb">Clients</span> are the typical Web user's internet-connected devices (for example, your computer connected to you WI-FI, or your phone connected to your mobile network) and <span class="linkb">Web-accessing software</span> available on those devices (usually a web browser like Firefox or Chrome).</li>
+					<li class="text"><span class="linkb">Servers</span> are computers that store <span class="linkb">webpages, sites, or apps.</span> When a clientdevice wants to access a webpage, a copy of the webpage is downloaded from the server onto the client machine to be displayed in the user's web browser.</li>
+				</ul>
+				<img id="server" src="client_server.jpg" alt="server client diagram">
+			</div>
+			<div class="three">
+				<h4 class="titles">So What Actually Happens?</h4>
+				<ol>
+					<li class="text">The browser goes to the <span class="linkb">DNS server</span> and finds the real address of the <span class="linkb">server</span> that the website lives on.</li>
+					<li class="text">The browser sends an <span class="linkb">HTTP request</span> message to the server asking it to send a copy of the website to the client</li>
+					<li class="text">If the server approves the client's request, the server sends the client a <span class="linkb">"200 OK" Message</span>"200 OK" Message, which means "Permission granted! Here you go!", and then starts sending the website's files to the browser as a series of small chunks.</li>
+					<li class="text">The browser assembles the small chunks into a complete website and displays it to you!</li>
+				</ol>
+			</div>
+			<div class="four">
+				<img src="html.png" alt="html css js diagram" id="bigthree">
+				<div class="fourtext">
+					<h4 class="titles">The Big 3 - HTML, CSS, JavaScript</h4>
+					<p class="text">While the server can process information in many different languages, the files that they serve to the client are always going to be some combination of HTML, CSS, and JavaScript!</p>
+					<p class="text">Learn more about the Big 3 <span class="linkb">here!</span></p>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
