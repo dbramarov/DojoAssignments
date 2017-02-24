@@ -1,0 +1,137 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.wrapper {
+	background-color: #d7e2f4;
+	margin: 0px auto;
+	padding: 20px;
+	width: 1000px;
+	height: auto;
+}
+
+.header {
+	background-color: #52bdd8;
+	height: 90px;
+	margin-bottom: 20px;
+}
+
+#github {
+	width: 70px;
+	margin: 10px;
+}
+
+ul li {
+	list-style-type: none;
+	text-decoration: underline;
+	color: white;
+	display: inline;
+	margin-left: 10px;
+}
+
+.gbasic {
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 20px;
+}
+
+.hlist {
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 30px;
+	margin-left: 50px;
+}
+
+.body {
+	height: 660px;
+	background-color: #efed88;
+}
+
+.footer {
+	height: 100px;
+	background-color: #52bdd8;
+	margin-top: 20px;
+	text-align: center;
+}
+
+.ftext {
+	padding-top: 35px;
+}
+
+.sidebar {
+	width: 280px;
+	height: 600px;
+	background-color: #16223d;
+	margin: 20px;
+	display: inline-block;
+	vertical-align: top;
+	color: white;
+	padding: 10px;
+}
+
+.bmargin {
+	margin-bottom: 20px;
+}
+
+.main {
+	width: 610px;
+	height: 640px;
+	background-color: inherit;
+	margin: 20px;
+	display: inline-block;
+}
+
+.tbody {
+	height: 200px;
+	background-color: inherit;
+	color: white;
+}
+
+.mbody {
+	height: 200px;
+	background-color: inherit;
+	margin-bottom: 20px;
+	color: white;
+}
+
+.bbody {
+	height: 180px;
+	width: 590px;
+	background-color: #16223d;
+	color: white;
+	padding: 10px;
+}
+
+.small {
+	width: 170px;
+	height: 160px;
+	background-color: #16223d;
+	display: inline-block;
+	padding: 10px;
+}
+
+.smallr {
+	margin-left: 15px;
+}
+
+.med {
+	width: 270px;
+	height: 180px;
+	background-color: #16223d;
+	display: inline-block;
+	padding: 10px;
+}
+
+#medr {
+	margin-left: 25px;
+}
+
+p {
+	padding-left: 10px;
+	font-size: 18px;
+}
+
+.highlight {
+	color: #52bdd8;
+}
