@@ -1,0 +1,190 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-family: arial;
+}
+
+.container {
+	width: 1000px;
+	background-color: #0b152d;
+	margin: 0px auto;
+	padding: 15px 13px 5px 13px;
+}
+
+.name {
+	display: inline-block;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	color: white;
+	font-weight: normal;
+	margin-left: 15px;
+	font-size: 32px;
+}
+
+#lispec {
+	color: #285cd6;
+}
+
+#cons {
+	color: #285cd6;
+}
+
+.header {
+	padding-bottom: 10px;
+}
+
+.header ul li {
+	list-style-type: none;
+	display: inline;
+	width: 100px;
+	margin-left: 65px;
+	font-size: 15px;
+	color: white;
+}
+
+.list {
+	display: inline-block;
+	margin-left: 60px;
+	margin-top: 10px;
+	margin-bottom: 5px;
+	font-size: 15px;
+}
+
+.white {
+	background-color: white;
+	width: 1000px;
+	padding-bottom: 10px;
+}
+
+#mainpic {
+	width: 970px;
+	padding: 15px;
+}
+
+.three {
+	width: 1000px; 
+}
+
+.middle {
+	width: 279px;
+	height: 190px;
+	background-color: #1453ba;
+	display: inline-block;
+	margin-left: 15px;
+	padding: 15px;
+	color: white;
+	vertical-align: top;
+	margin-bottom: 15px;
+}
+
+.bottom {
+	width: 1000px;
+	height: 235px;
+	background-color: inherit;
+}
+
+.btm {
+	width: 309px;
+	height: 220px;
+	display: inline-block;
+	margin-left: 15px;
+	vertical-align: top;
+}
+
+.footer {
+	width: 1000px;
+	height: 50px;
+	height: 40px;
+	background-color: #89caff;
+	border-top: 2px solid #285cd6; 
+}
+
+.footer ul li {
+	list-style-type: none;
+	display: inline;
+	width: 100px;
+	font-size: 13px;
+	margin-left: 37px;
+	color: #285cd6;
+}
+
+.ftrlist {
+	width: 600px;
+	margin-left: 215px;
+}
+
+.smallertxt {
+	font-size: 12px;
+}
+
+.wrench {
+	width: 40px;
+}
+
+.wrenchtitle {
+	margin-bottom: 10px;
+}
+
+.hthree {
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 9px;
+	font-weight: normal;
+}
+
+#testi {
+	width: 135px;
+}
+
+.wbtn {
+	width: 125px;
+	height: 35px;
+	margin-top: 30px;
+	border: none;
+	background-color: #5194ff;
+	border-radius: 5px;
+	color: white;
+}
+
+.btmthree {
+	text-align: center;
+	margin-top: 15px;
+	font-weight: bold;
+}
+
+.building {
+	width: 300px;
+	margin-left: 5px;
+	margin-top: 15px;
+}
+
+.btmtxt {
+	margin-bottom: 13px;
+}
+
+#spacing {
+	margin-top: 55px;
+	height: 165px;
+}
+
+#link {
+	text-decoration: none;
+	color: #285cd6;
+	font-size: 15px;
+}
+
+.test {
+	padding: 20px;
+	background-color: #89caff;
+	margin-top: 20px;
+	height: 70px;
+	margin-bottom: 30px;
+}
+
+#pwhite {
+	color: #285cd6;
+}
+
+#homeone {
+	color: #badefc;
+}
