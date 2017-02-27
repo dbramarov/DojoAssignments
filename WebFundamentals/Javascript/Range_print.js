@@ -11,4 +11,4 @@ function rangePrint(start, end, skip = 1) {
 	}
 }
 
-
+rangePrint(2, 10, 1);
