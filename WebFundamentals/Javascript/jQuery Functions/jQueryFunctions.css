@@ -1,0 +1,122 @@
+* {
+	margin: 0;
+	padding: 0;
+	/*outline: 1px dashed red;*/
+	font-family: "Palatino Linotype";
+}
+
+.container {
+	width: 1000px;
+	height: inherit;
+	margin: 0 auto;
+	background-color: #6492CE;
+}
+
+.header {
+	width: inherit;
+	height: 80px;
+	background-color: #023052;
+	color: #D4EDFF;
+	text-align: center;
+	padding-top: 20px;
+}
+
+.navbar {
+	background-color: #241B1E;
+	text-align: center;
+}
+
+.navbar ul li {
+	list-style-type: none;
+	vertical-align: top;
+	display: inline-block;
+	margin: 30px;
+	color: #6492CE;
+	font-weight: bold;
+	font-size: 25px;
+}
+
+.contwo {
+	width: 700px;
+	height: inherit;
+	background-color: #023052; 
+	margin: 0 auto;
+	color: #D4EDFF;
+}
+
+.one {
+	padding: 15px;
+	text-align: center;
+	border-bottom: 7px solid #6492CE; 
+}
+
+.two {
+	padding: 15px;
+	text-align: center;
+	border-bottom: 7px solid #6492CE;
+}
+
+.three{
+	padding: 15px;
+	text-align: center;
+	border-bottom: 7px solid #6492CE;
+}
+
+.four{
+	padding: 15px;
+	text-align: center;
+	border-bottom: 7px solid #6492CE;
+}
+
+.five {
+	padding: 15px;
+	text-align: center;
+	border-bottom: 7px solid #6492CE;
+} 
+
+.six {
+	padding: 15px;
+	text-align: center;
+	border-bottom: 7px solid #6492CE;
+}
+
+.btn {
+	width: 125px;
+	height: 50px;
+	margin-top: 15px;
+	border: 1px solid white;
+	background-color: #6492CE;
+	border-radius: 12px;
+	color: white;
+	padding: 5px;
+}
+
+h2 {
+	margin-bottom: 10px;
+}
+
+.selected {
+	background-color: #D4EDFF;
+}
+
+#ninja {
+	width: 200px;
+	margin-top: 10px;
+	border: 10px solid #6492CE;
+}
+
+.inlinebtn {
+	padding-bottom: 15px;
+}
+
+.footer {
+	height: 50px;
+	background-color: #241B1E;
+	text-align: center;
+	color: #D4EDFF;
+	padding-bottom: 20px;
+}
+
+#ftr {
+	padding-top: 20px;
+}
