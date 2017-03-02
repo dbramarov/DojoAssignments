@@ -1,6 +1,9 @@
 $(document).ready(function(){
+
 	$('img').click(function(){
-		var ninjapic = $(this).attr('data-alt-src');
-		$(this).attr('src', ninjapic);
+		var temp = $(this).attr('src');
+		$(this).attr('src', $(this).attr('data-alt-src'));
+		$(this).attr('data-alt-src', temp);
 	})
+
 });

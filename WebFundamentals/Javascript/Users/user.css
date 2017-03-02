@@ -1,0 +1,31 @@
+table {
+	border: 1px solid black;
+	width: 700px;
+	margin-bottom: 40px;
+}
+
+tr {
+	text-align: center;
+}
+
+input {
+	text-align: right;
+}
+
+
+
+.form {
+	width: 400px;
+	text-align: right;
+	border-top: 3px solid black;
+	padding-top: 20px;
+}
+
+body {
+	width: 1000px;
+	margin: 50px auto;
+}
+
+#btn {
+	margin-top: 50px;
+}
