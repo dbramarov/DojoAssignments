@@ -1,0 +1,79 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.left {
+	display: inline-block;
+	width: 500px;
+	margin-left: 300px;
+	margin-top: 100px;
+	vertical-align: top;
+	padding: 50px;
+	background-color: grey;
+
+}
+
+.right {
+	display: inline-block;
+	width: 500px;
+	height: 255px;
+	margin-left: 100px;
+	margin-top: 100px;
+	padding: 50px;
+	background-color: grey;
+}
+
+.one {
+	width: 400px;
+	height: 129px;
+	margin: auto;
+	margin-bottom: 20px;
+
+}
+
+input {
+	margin-bottom: 20px;
+}
+
+#tarea {
+	height: 100px;
+	width: 300px;
+}
+
+#btn {
+	margin-top: 20px;
+}
+
+.top {
+	height: 20px;
+}
+
+.app {
+	background-color: #EEE846;
+	text-align: center;
+	height: 100px;
+	margin-bottom: 15px;
+
+}
+
+.des {
+	font-size: 20px;
+	margin-top: 15px;
+}
+
+.hide {
+	display: none;
+}
+
+.description {
+	font-size: 20px;
+	display: none;
+}
+
+p {
+	background-color: #EEE846;
+	text-align: center;
+	height: 100px;
+	margin-bottom: 15px;
+}
