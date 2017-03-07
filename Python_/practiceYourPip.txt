@@ -1,0 +1,28 @@
+pip install Django :
+
+	Install Django through pip.
+
+pip list:
+
+	Lists installed packages. Listed in case-sensitive sorted order. 
+
+pip install Django(Again):
+
+	Requirement already satisfied: Django in C:\python27\lib\site-packages
+
+pip freeze:
+
+	Output installed packages in requirements format.
+
+pip show Django:
+
+	Listed all the info about Django.
+
+pip uninstall Django:
+
+	Prepped all files for uninstall but asked Y/N? to proceed.
+
+pip search Flask: 
+
+	Search PyPI for packages containing the word Flask
+
