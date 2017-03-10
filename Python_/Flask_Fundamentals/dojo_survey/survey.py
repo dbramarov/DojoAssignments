@@ -1,27 +1,29 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, flash
 app = Flask(__name__)
+app.secret_key = 'orian'
 
 @app.route('/')
-
 def index():
   return render_template("survey.html")
 
 @app.route('/inf', methods=['POST'])
+def createuser():
 
-def create_user():
-
-   print "Got Post Info"
-  
-   name = request.form['name']
-   location = request.form['xyz']
-   favlang = request.form['favlang']
-   comments = request.form['comm']
-
-   print name
-   print location
-   print favlang
-   print comments
-
-   return render_template('info.html', name = name, location = location, favlang = favlang, comments = comments)
+   if len(request.form['name']) < 1:
+      flash("Name cannot be empty!")
+      return redirect('/')
+   if len(request.form['comm']) < 1:
+      flash("Comments cannot be empty!")
+      return redirect('/')
+   if len(request.form['comm']) > 120:
+      flash("Comments cannot be more than 120 characters!")
+      return redirect('/')
+   else:   
+      name = request.form['name']
+      location = request.form['xyz']
+      favlang = request.form['favlang']
+      comments = request.form['comm']
+   
+      return render_template('info.html', name = name, location = location, favlang = favlang, comments = comments)
 
 app.run(debug=True)

@@ -7,7 +7,15 @@
 <body>
 	<div class="main">
 		<form action='/inf' method='post'>
-			Your Name: <input class="one" type="text" name="name"><br>
+			Your Name: 
+			{% with messages = get_flashed_messages() %}
+				{% if messages %}
+					{% for message in messages %}
+						<p>{{message}}</p>
+					{% endfor %}
+				{% endif %}
+			{% endwith %}
+			<input class="one" type="text" name="name"><br>
 			Dojo Location: 
 			<select class="one" name="xyz">
 				<option value="dc">DC</option>
@@ -18,7 +26,6 @@
 				<option value="css">CSS</option>
 				<option value="js">JavaScript</option>
 			</select><br>
-			Comments (optional): <br>
 			<input id="text" class="one" type="textarea" name="comm"><br>
 			<input class="one" type="submit" name="submit">
 		</form>
