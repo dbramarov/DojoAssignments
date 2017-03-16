@@ -1,0 +1,29 @@
+<html>
+<head>
+  <title>Login and Registration</title>
+</head>
+<body>
+  <h2 style="text-align: center; margin-top: 50px;">Register</h2>
+  {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          {% for message in messages %}
+            <p style="background-color: red; color: white; text-align: center;">{{message}}</p>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+  <form style="margin-left: 600px; width: 390px;" action='/register' method='POST'>
+    First Name:<input style="float: right" type="text" name="first_name" id="first_name"><br>
+    Last Name:<input style="float: right" type="text" name="last_name" id="last_name"><br>
+    Email: <input style="float: right;" type="text" name="email" id="email"><br>
+    Password:<input style="float: right" type="password" name="password" id="password"><br>
+    Password Confirmation:<input style="float: right" type="password" name="passconfirm" id="passconfirm"><br>
+    <input type="submit" value="Register">
+  </form>
+  <h2 style="text-align: center;">Login</h2>
+  <form style="margin-left: 600px; width: 390px;" action="/login" method='POST'>
+    Email: <input style="float: right;" type="text" name="email" id="email"><br>
+    Password:<input style="float: right" type="password" name="password" id="password"><br>
+    <input type="submit" value="Login">
+  </form>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<html>
+<head>
+  <title>Login and Registration</title>
+</head>
+<body>
+
+
+  {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          {% for message in messages %}
+            <p style="background-color: blue; color: white; text-align: center;">{{message}}</p>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+
+
+</body>
+</html>

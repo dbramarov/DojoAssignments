@@ -35,8 +35,8 @@ def createuser():
       flash("Password cannot be empty!")
       return redirect('/')
 
-   if len(request.form['pass']) < 9:
-      flash("Password should be more than 8 Characters")
+   if len(request.form['pass']) < 8:
+      flash("Password should be at least 8 Characters")
       return redirect('/')
 
    if len(request.form['conpass']) < 1:

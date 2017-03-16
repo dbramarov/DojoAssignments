@@ -1,0 +1,4 @@
+select * from users
+
+left join friendships on users.id = 
+left join users as user2 on user2.id = friendships.friend_id 

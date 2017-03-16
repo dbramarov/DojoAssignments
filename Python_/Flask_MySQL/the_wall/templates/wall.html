@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>The WALL</title>
+</head>
+<body>
+	<div style="border-bottom: 2px solid black;">
+		<h1 style="display: inline-block; vertical-align: center; margin-left: 450px;">CodingDojo Wall</h1>
+      	<form style="display: inline-block; vertical-align: center; margin-left: 400px;" action="logoff">
+      		<button type="submit">LOG OFF</button>
+      	</form>
+	</div>
+	<div style="width: 1000px; margin: auto;">
+		{% with messages = get_flashed_messages() %}
+        	{% if messages %}
+         		{% for message in messages %}
+            <p style="text-align: center; display: inline-block;">{{message}}</p>
+          		{% endfor %}
+        	{% endif %}
+      	{% endwith %}
+		<h3>Post a message:</h3>
+		<form action="/message" method="POST">
+			<textarea name="message" style="width: 950px; height: 100px; display: block;"></textarea>
+			<input style="margin-left: 850px; margin-top: 15px;" type="submit" name="submit" value="Post a message">
+		</form>
+	</div>
+	<div style="width: 1000px; margin: auto;" class="messages">
+		{% for item in messages: %}
+			<p style="margin-bottom: 10px; margin-top: 40px;">{{item['first_name']}} {{item['last_name']}} {{item['created_at']}}</p>
+			<p style="margin-bottom: 50px;">{{item['message']}}</p>
+				{% for c in comms: %}
+					{% if item['id'] == c['message_id'] %}
+					<p style="margin-left: 100px;">{{c['first_name']}} {{c['last_name']}} {{c['created_at']}}</p>
+					<p style="margin-left: 200px;">{{c['comments']}}</p>
+					{% endif %}
+				{% endfor %}
+			<form action="/comments/{{item['id']}}" method="POST">
+				<textarea style="width: 700px; height: 35px; margin-left: 240px;" name="comments"></textarea>
+				<input style="margin-left: 840px;" type="submit" name="submit" value="Post a comment">
+			</form>
+		{% endfor %}
+	</div>
+</body>
+</html>

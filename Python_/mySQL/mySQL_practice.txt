@@ -1,0 +1,15 @@
+SELECT * FROM leads
+
+INSERT INTO leads(first_name, last_name, registered_datetime, email, sites_id) VALUES ('D$', 'POOP', now(), 'hasdfusidf', 2)		
+
+SELECT * FROM clients
+
+UPDATE clients 
+SET first_name = 'Tommy'
+WHERE id = 9
+
+SELECT * FROM leads
+
+DELETE FROM leads
+WHERE id = 39
+
