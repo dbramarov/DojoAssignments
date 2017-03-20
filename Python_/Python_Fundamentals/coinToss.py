@@ -4,7 +4,7 @@ def coinToss():
 	headCount = 0
 	tailCount = 0
 	print "Starting the program..."
-	for count in range(1,5001):
+	for count in range(1,101):
 		randomNum = random.random()
 		randomNum = round(randomNum)
 		if randomNum == 0:

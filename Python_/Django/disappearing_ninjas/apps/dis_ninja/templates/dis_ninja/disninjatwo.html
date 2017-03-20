@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Disapearing Ninja</title>
+	
+</head>
+<body>
+		{% if display == True %}
+		{% load staticfiles %}
+		<img src="{% static 'dis_ninja/Images/tmnt.png' %}">
+		<h1>Now add a color! /blue /purple /orange /red</h1>
+		{% endif %}
+
+		{% if display == False %}
+			{% if color == 'blue' %}
+			<img src="{% static 'dis_ninja/Images/leonardo.jpg' %}">
+		
+			{% elif color == 'purple' %}
+			<img src="{% static 'dis_ninja/Images/donatello.jpg' %}">
+		
+			{% elif color == 'orange' %}
+			<img src="{% static 'dis_ninja/Images/michelangelo.jpg' %}">
+	
+			{% elif color == 'red' %}
+			<img src="{% static 'dis_ninja/Images/raphael.jpg' %}">
+		
+			{% else %}
+			<img src="{% static 'dis_ninja/Images/notapril.jpg' %}">
+			{% endif %}
+		{% endif %}
+</body>
+</html>
