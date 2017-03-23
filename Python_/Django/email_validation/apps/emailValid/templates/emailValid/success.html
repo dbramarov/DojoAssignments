@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Success Email Validation</title>
+</head>
+<body>
+	
+	<div style="margin-left: 100px; margin-top: 100px; width: 600px" class="main">
+		<p style="background-color: green;">The email address you entered: {{flash.email}} is a VALID email. Thank you!</p>
+		<h2>Email Addresses Entered:</h2>
+		<hr>
+		<div class="data">
+		{% for email in emails %}
+			<p>{{email.email}} {{email.created_at}}</p>
+		{% endfor %}
+		</div>
+	</div>s
+</body>
+</html>

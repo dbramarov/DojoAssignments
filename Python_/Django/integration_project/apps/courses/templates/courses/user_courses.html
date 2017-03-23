@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>	User Courses</title>
+</head>
+<body>
+	<form action="addUser" method="post">	
+		<select name="Users">
+			<option></option>	
+		</select>
+		<select name="courses">
+		{% for item in cors %}
+			<option>{{item.name}}</option>
+		{% endfor %}
+		</select>
+		<input type="submit" name="submit" value="Add User to Courses">
+	</form>
+	<table style="border: 2px solid black; width: inherit; text-align: center;">
+			<tr>
+				<th>Course</th>
+				<th>Title</th>
+				<th>Number of Users</th>
+			</tr>
+			{% for item in cors %}
+			<tr>
+				<td>{{item.id}}</td>
+				<td>{{item.name}}</td>
+				<td></td>
+			</tr>
+			{% endfor %}
+	</table>
+	<div>	
+		{{user}}
+	</div>
+</body>
+</html>

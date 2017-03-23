@@ -1,0 +1,29 @@
+<html>
+<head>
+  <title>Login and Registration</title>
+</head>
+<body>
+  <h1 style="background-color: green; text-align: center;">{{success}}</h1>
+  <h2 style="text-align: center; margin-top: 50px;">Register</h2>
+ 
+  <form style="margin-left: 600px; width: 390px;" action='/register' method='POST'>
+    {% csrf_token %}
+    <h1>{{first}} {{last}} {{email}} {{passs}} {{passcon}} </h1>
+
+    First Name:<input style="float: right" type="text" name="first_name" id="first_name" required><br>
+    Last Name:<input style="float: right" type="text" name="last_name" id="last_name" required><br>
+    Email: <input style="float: right;" type="text" name="email" id="email" required><br>
+    Password:<input style="float: right" type="password" name="password" id="password" required><br>
+    Password Confirmation:<input style="float: right" type="password" name="passconfirm" id="passconfirm" required><br>
+    <input type="submit" value="Register">
+  </form>
+  <h2 style="text-align: center;">Login</h2>
+  <h2 style="background-color: red; text-align: center;">{{pass}}</h2>
+  <form style="margin-left: 600px; width: 390px;" action="/login" method='POST'>
+    {% csrf_token %}
+    Email: <input style="float: right;" type="text" name="email" id="email"><br>
+    Password:<input style="float: right" type="password" name="password" id="password"><br>
+    <input type="submit" value="Login">
+  </form>
+</body>
+</html>
