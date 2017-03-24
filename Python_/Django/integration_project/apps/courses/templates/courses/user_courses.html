@@ -4,13 +4,16 @@
 	<title>	User Courses</title>
 </head>
 <body>
-	<form action="addUser" method="post">	
+	<form action="{% url 'courses:registerUser'%}" method="post">
+	{% csrf_token %}	
 		<select name="Users">
-			<option></option>	
+		{% for u in user %}
+			<option value="{{u.id}}">{{u.first_name}} {{u.last_name}}</option>
+		{% endfor %}	
 		</select>
 		<select name="courses">
 		{% for item in cors %}
-			<option>{{item.name}}</option>
+			<option value="{{item.id}}">{{item.name}}</option>
 		{% endfor %}
 		</select>
 		<input type="submit" name="submit" value="Add User to Courses">
@@ -25,12 +28,10 @@
 			<tr>
 				<td>{{item.id}}</td>
 				<td>{{item.name}}</td>
-				<td></td>
+				<td>{{item.all_courses.count}}</td>
 			</tr>
 			{% endfor %}
 	</table>
-	<div>	
-		{{user}}
-	</div>
+	<a href="{% url 'courses:my_index'%}">Return Home</a>
 </body>
 </html>

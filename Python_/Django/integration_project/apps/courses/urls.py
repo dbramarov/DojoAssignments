@@ -7,5 +7,6 @@ urlpatterns = [
     url(r'^remove/(?P<id>\d+)$', views.remove),
     url(r'^nope$', views.index),
     url(r'^del/(?P<id>\d+)$', views.delete, name='delete'),
-    url(r'^choose$', views.Choose),
-]
+    url(r'^choose$', views.Choose, name='choose'),
+    url(r'^registerUser$', views.registerUser, name='registerUser'),
+    ]

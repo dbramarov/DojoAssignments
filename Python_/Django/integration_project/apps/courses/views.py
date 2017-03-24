@@ -27,10 +27,14 @@ def delete(request, id):
 	return redirect(reverse('courses:my_index'))
 
 def Choose(request):
-	one = User.objects.annotate(user_total=Count('all_users'))
 	context = {
-	'cors': Course.objects.all(),
-	'user': one
+	'cors': Course.objects.all().annotate(num_users=Count('all_courses')),
+	'user': User.objects.all()
 	}
-	print one 
 	return render(request, 'courses/user_courses.html', context)
+
+def registerUser(request):
+	user = User.objects.get(id = request.POST['Users'])
+	course = Course.objects.get(id = request.POST['courses'])
+	login = LoginR.objects.create(user = user, course = course)
+	return redirect(reverse('courses:choose'))
