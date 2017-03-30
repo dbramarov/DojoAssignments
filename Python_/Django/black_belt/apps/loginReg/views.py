@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, HttpResponse
 from django.contrib import messages
+from django.core.urlresolvers import reverse
 from .models import User
 import bcrypt, re
 EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
@@ -10,9 +11,8 @@ def index(request):
 def validate(request):
 
 	data = {
-		"first_name" : request.POST['first_name'],
-		"last_name" : request.POST['last_name'],
-		"email" : request.POST['email'],
+		"name" : request.POST['name'],
+		"user_name" : request.POST['user_name'],
 		"password" : request.POST['password'],
 		"passconfirm" : request.POST['passconfirm']
 	}
@@ -32,19 +32,24 @@ def validate(request):
 
 def success(request):
 	if request.method == 'POST':
-		email = request.POST['email']
+		username = request.POST['user_name']
 		password = request.POST['password']
-		user = User.objects.filter(email=email)
-		if not EMAIL_REGEX.match(email):
+		if not User.objects.filter(username=username):
 			context = {
-			'email': "Email Not Valid"
+				'error': 'Username Not Found'
 			}
 			return render(request, 'loginReg/index.html', context)
+		user = User.objects.filter(username=username)
 		if bcrypt.hashpw(str(password), str(user[0].password)) == user[0].password:
-			pass
+			request.session['user'] = user[0].id
 		else:
 			context = {
 			'pass': "Password Not Valid"
 			}
 			return render(request, 'loginReg/index.html', context)
-		return render(request, 'blackBelt/index.html')
+	
+		return redirect(reverse('black:my_index'))
+
+def logout(request):
+	request.session.clear()
+	return redirect('/')

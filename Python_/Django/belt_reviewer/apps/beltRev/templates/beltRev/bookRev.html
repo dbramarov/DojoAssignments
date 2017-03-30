@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Book Review</title>
+</head>
+<body>
+<a href="{%url 'login:logout'%}">Logout</a>
+<a href="{%url 'books:index'%}">Home</a>
+
+<h1>Book Title: {{book.title}}</h1>
+<h2>Book Author: {{author.name}}</h2>
+
+<div>
+	<div style="display: inline-block;vertical-align: top;" class="left">
+		<h2>Reviews:</h2>
+		{% for review in reviews %}
+		<p>Rating: {{review.rating}}</p>
+		<p>{{review.user.name}} says: {{review.content}}</p>
+		<p>{{review.created_at}}</p>
+		<p><a href="">Delete Review</a></p>
+		<hr>
+		{% endfor %}
+	</div>
+	<div style="display: inline-block;vertical-align: top; margin-left: 300px;" class="right">
+		<h2>Add a Review:</h2>
+		<div>
+			<form action="{% url 'books:displayRev' book.id %}" method="post">
+			{% csrf_token %}
+				<p>Add a Review:</p>
+				<textarea cols="50" rows="5" name="rev"></textarea>
+				<p>Rating: <select name="rating">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select> Stars</p>
+				<input type="submit" name="submit" value="Submit Review">
+			</form>
+		</div>
+	</div>
+</div>
+</body>
+</html>

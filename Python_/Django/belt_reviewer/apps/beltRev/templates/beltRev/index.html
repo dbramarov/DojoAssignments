@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Belt Reviewer</title>
+</head>
+<body>
+<h1>Welcome {{user.name}}!</h1>
+<a href="{%url 'login:logout'%}">Logout</a>
+<a href="{% url 'books:add' %}">Add Book and Review</a>
+<div>
+	<div style="display: inline-block;vertical-align: top;" class="left">
+		<h2>Recent Book Reviews:</h2>
+
+		{% for review in reviews %}
+		<p><strong><a href="{% url 'books:displayRev' review.book.id %}">{{review.book.title}}</a></strong></p>
+		<p style="margin-left: 40px;">Rating: {{review.rating}}</p>
+		<p style="margin-left: 40px;"><a href="{% url 'books:userPage' review.user.id %}">{{review.user.name}}</a> says:</p>
+		<p style="margin-left: 40px;">{{review.content}}</p>
+		<p style="margin-left: 40px;">{{review.created_at}}</p>
+		<hr>
+		{% endfor %}
+
+	</div>
+	<div style="display: inline-block;vertical-align: top; margin-left: 300px;" class="right">
+		<h2>Other Books with Reviews:</h2>
+		<div style="outline: 2px solid black; height: 300px; overflow: scroll; text-align: center;">
+			{% for review in otherRevs %}
+			<p><strong><a href="{% url 'books:displayRev' review.book.id %}">{{review.book.title}}</a></strong></p>
+			{% endfor %}
+		</div>
+	</div>
+</div>
+</body>
+</html>
