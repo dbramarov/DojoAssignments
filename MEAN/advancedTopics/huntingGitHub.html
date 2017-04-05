@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hunting GitHub</title>
+	<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+	<script type="text/javascript">
+
+		$(document).ready(function(){
+
+			$('.btn').click(function(){
+				$.get("https://api.github.com/users/dbramarov", displayName)
+			});
+
+			function displayName(data) {
+				$(".div").append(data.name);
+	  			console.log(data);
+			}
+		});
+
+	</script>
+</head>
+<body>
+	<button class="btn">Get GitHub API</button>
+	<div class="div">
+		
+	</div>
+</body>
+</html>
