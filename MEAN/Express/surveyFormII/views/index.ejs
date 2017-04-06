@@ -1,0 +1,47 @@
+<html>
+<head>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type ="text/javascript">
+        $(document).ready(function (){
+
+            var socket = io.connect();
+            
+            $('.btn').click(function (e){
+                e.preventDefault();
+                socket.emit("posting_form", {name: $('#name').val(), location: $('#location').val(), language: $('#language').val(), comment: $('#comment').val()});
+            });
+            socket.on('server_response', function (data){
+                console.log(data.response);
+                $('.message').html("You emitted the following information to the server: "+ JSON.stringify(data.response));
+            });
+            socket.on('random_number', function (data){
+                $('.number').html("Your lucky number emitted by the server is: "+ data.num);
+            });
+        })
+    </script>
+</head>
+<body>
+    <div class="message"></div>
+    <div class="number"></div>
+    <div style="border: 2px solid black; padding: 20px; display: inline-block;">
+    	<form method="post">
+    		<p>Your Name: <input id="name" type="text"></p>
+    		<p>Dojo Location: 
+    		<select id="location">
+    			<option>DC</option>
+    			<option>Seattle</option>
+    			<option>NYC</option>
+    		</select></p>
+    		<p>Favorite Language: 
+    		<select id="language">
+    			<option>JS</option>
+    			<option>HTML</option>
+    			<option>CSS</option>
+    		</select></p>
+    		<p>Comment (optional): <textarea id="comment"></textarea></p>
+    		<input class="btn" type="submit" name="submit">
+    	</form>
+    </div>
+</body>
+</html>

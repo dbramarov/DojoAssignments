@@ -1,0 +1,40 @@
+<html>
+<head>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type ="text/javascript">
+        $(document).ready(function (){
+
+            var socket = io.connect();
+            var count = 0;
+            $('.btn').click(function (e){
+                e.preventDefault();
+                socket.emit("posting_form", {count: 1});
+            });
+            socket.on('server_response', function (data){
+                count += data.response.count;
+                console.log(count);
+                $('#count').html(count);
+            });
+            $('.reset').click(function (event){
+                event.preventDefault();
+                socket.emit("reset", {count: 0});
+            });
+            socket.on('s_response', function (data){
+                count = 0;
+                $('#count').html(data.response.count);
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>The button has been pushed <span id="count">0</span> time(s)</h1>
+    <p>Push the button to update the count!</p>
+    	<form>
+    		<input style="background-color: blue; width: 200px; height: 40px; color: white;" class="btn" type="submit" name="submit" value="PUSH THE EPIC BUTTON">
+    	</form>
+        <form>
+            <input style="background-color: red; width: 100px; height: 30px; color: white;" class="reset" type="submit" name="reset" value="Reset Count">
+        </form>
+</body>
+</html>
