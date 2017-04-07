@@ -11,8 +11,8 @@ app.get('/', function(req, res) {
  res.render("index");
 })
 
-var server = app.listen(7000, function() {
- console.log("listening on port 7000");
+var server = app.listen(3000, function() {
+ console.log("listening on port 3000");
 });
 
 var io = require('socket.io').listen(server);

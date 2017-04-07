@@ -1,0 +1,59 @@
+<html>
+<head>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type ="text/javascript">
+        $(document).ready(function (){
+            var socket = io.connect();
+
+            $('#ok').click(function (e){
+                e.preventDefault();
+                socket.emit("ok_clicked", {name: $('#name').val()});
+            });
+            socket.on('server_name_response', function (data){
+                $('#login').css('display', 'none');
+                $('.main').css('display', 'inline-block');
+
+                for (var i = 0; i < data.arr.length; i++) {
+                        $('.messages').append('<p>' +data.arr[i]+ '</p>');
+                }           
+            });
+            socket.on('everybody', function(data){
+                $('.messages').append('<p>' + data.name + " has joined the chatroom!" + '</p>');
+            })
+
+            $('#submit').click(function (e){
+                e.preventDefault();
+                socket.emit("message_sub", {message: $('#message').val()});
+            });
+            socket.on('message_response', function (data){
+                console.log(data.response);
+                    $('#message').val(" ");
+                    $('.messages').append("<p>" + data.name + " : " + data.response + "</p>");
+            });
+        });
+    </script>
+</head>
+<body>
+
+    <div id="login" style="border: 2px solid black;padding: 20px;display: inline-block;">
+    <h1>Your Name:</h1>
+        <form>
+            <input style="display: inline;" type="text" id="name">
+            <input type="submit" name="cancel" value="Cancel">
+            <input type="submit" id="ok" value="OK">
+        </form>
+    </div>
+
+
+    <div style="display: none;" class="main">
+        <h1>Conversation Board</h1>
+        <div class="messages" style="overflow: scroll; border: 4px solid black; width: 600px; height: 600px; padding: 20px;">
+        </div>
+        <form>
+            <input style="width: 550px; padding: 5px; margin-top: 10px;" type="text" id="message" placeholder="Enter Your Message Here!">
+            <input type="submit" id="submit" value="Send">
+        </form>
+    </div>
+</body>
+</html>
