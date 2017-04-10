@@ -1,0 +1,20 @@
+<html>
+<head>
+	<title>Owl Fun</title>
+</head>
+<body>
+    <h1>All of our Owls:</h1>
+    <hr>
+    <% for (var i = 0; i < owl.length; i++) { %>
+    <h2><a href="/owl/<%= owl[i]._id %>"><%= owl[i].name %></a></h2>
+    <p><%= owl[i].age %></p>
+    <p><%= owl[i].speed %></p>
+    <a href="/edit/<%= owl[i]._id %>">Edit Z Owl</a>
+    <a href="/delete/<%= owl[i]._id %>">Destroy meeeee :(</a>
+    <hr>
+    <% } %>
+<form action="/new">
+    <input type="submit" value="Add a new Owl">
+</form>
+</body>
+</html>

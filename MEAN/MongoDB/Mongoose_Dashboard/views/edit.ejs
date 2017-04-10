@@ -1,0 +1,14 @@
+<html>
+<head>
+	<title>Edit Owl</title>
+</head>
+<body>
+    <h1>Edit <%= owl.name %>:</h1>
+        <form method="post" action="/editOwl/<%= owl._id %>">
+            <p>Owl Name: <input type="text" name="name"></p>
+            <p>Age: <input type="text" name="age"></p>
+            <p>Speed: <input type="text" name="speed"></p>
+            <p><input type="submit" value="Edit my Owl"></p>            
+    	</form>
+</body>
+</html>
