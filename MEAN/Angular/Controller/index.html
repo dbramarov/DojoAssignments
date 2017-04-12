@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app='app'>
+<head>
+	<title>First Angular App</title>
+	<script src='bower_components/angular/angular.js'></script>
+	<script type="text/javascript">
+		var myApp = angular.module('app', []);
+		myApp.controller('foodController', ['$scope', function($scope){
+			$scope.food = [];
+			$scope.addFood = function(){
+				$scope.food.push($scope.newFood);
+				$scope.newFood = {};
+			}
+		}])
+	</script>
+</head>
+<body>
+	<div ng-controller='foodController' id="myController">
+		<form>
+			<h2>Favorite Food: <input type="text" ng-model='newFood.name'></h2>
+			<input type="submit" value="Add Food" ng-click='addFood()'>
+		</form>
+		<p>Currently Typing: <span ng-bind='newFood.name'>{{myModel}}</span></p>
+		<p ng-repeat='f in food | filter: filter'>{{f.name}}</p>
+		<input type="text" ng-model="filter" placeholder="filter">
+	</div>
+</body>
+</html>
