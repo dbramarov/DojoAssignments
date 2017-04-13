@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Associations</title>
+	<style type="text/css"> table, th, td { border: 1px solid black; text-align: center; padding: 3px; margin-top: 15px;}</style>
+</head>
+<body>
+	<div ng-controller='AssociationsController'>
+		<form>
+			<h1>Associations:</h1>
+			<p>Player:  
+			<select ng-model='newAss.player'>
+				<option ng-repeat = 'player in players'>{{player.name}}</option>
+			</select></p>
+			<p>Team:
+			<select ng-model='newAss.team'>
+				<option ng-repeat = 'team in teams'>{{team.name}}</option>
+			</select></p>
+			<input type="submit" value="Assign player to Team" ng-click='addAss()'>
+		</form>
+		<table>
+			<tr>
+				<th>Player Name</th>
+				<th>Team Name</th>
+				<th>Actions</th>
+			</tr>
+			<tr ng-repeat= 'a in ass'>
+				<td>{{a.player}}</td>
+				<td>{{a.team}}</td>
+				<td><input type="submit" value="Clear Assignment" ng-click="deleteAss(a)"></td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>
