@@ -1,0 +1,28 @@
+<div ng-controller="wallController">
+	<h1>FULL MEAN WALL</h1>
+	<p>Welcome: {{user}}</p>
+	<button ng-click='logout()'>Sign Out</button>
+	<hr>
+	<form ng-submit='message(user)'>
+	<h1 ng-repeat="error in errors">{{error}}</h1>
+		<h3>Post a Message:</h3>
+		<p><textarea ng-model='newMessage.text' style="width: 500px; height: 50px;" required></textarea></p>
+		<p><input type="submit" value="Post a Message"></p>
+	</form>
+	<hr>
+	<div ng-repeat='message in messages | orderBy: "-createdAt" track by $index'>
+		<h4>{{message.user}} says:</h4>
+		<p>{{message.message}}</p>
+		<div style="margin-left: 70px;" ng-repeat='comment in message.comments'>
+			<h5>{{comment.user}}</h5>
+			<p>{{comment.comment}}</p>
+		</div>	
+		<div style="margin-left: 70px;">
+			<form ng-submit='comment(message._id, $index)'>
+				<h3>Comments:</h3>
+				<p><textarea ng-model='newComment[$index].comment' style="width: 500px; height: 50px;" required></textarea></p>
+				<p><input type="submit" value="Post Comment"></p>
+			</form>
+		</div>			
+	</div>
+</div>

@@ -1,0 +1,17 @@
+<div ng-controller='newController'>
+		<table>
+			<tr>
+				<th>Name</th>
+				<th>Show</th>
+				<th>Update</th>
+				<th>Delete</th>
+			</tr>
+			<tr ng-repeat= 'friend in friends'>
+				<td>{{friend.first_name}} {{friend.last_name}}</td>
+				<td><a href="#!/show/{{friend._id}}">Show</a></td>
+				<td><a href="#!/edit/{{friend._id}}">Update</a></td>
+				<td><a ng-click="delete(friend._id)" href="#!/">Delete</a></td>
+			</tr>
+		</table>
+		<input type="submit" value="New Friend" ng-click="new()">
+</div>

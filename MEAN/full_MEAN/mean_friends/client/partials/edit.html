@@ -1,0 +1,8 @@
+<div ng-controller='editController'>
+	<form>
+		<p>First Name: <input type="text" ng-model='friend.first_name'></p>
+		<p>Last Name: <input type="text" ng-model='friend.last_name'></p>
+		<p>Birthday: <input type="date" ng-model='friend.birthday'></p>
+		<input type="submit" ng-click='edit(friend._id)'>
+	</form>
+</div>
