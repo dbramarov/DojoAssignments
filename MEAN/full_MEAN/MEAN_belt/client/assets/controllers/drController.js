@@ -5,6 +5,10 @@ app.controller('drController', ['$scope','drFactory','$location', '$cookies', fu
 
   $scope.user = $cookies.get("user_name");
 
+	if(!$scope.user){
+		$location.url('/')
+	}
+	
 	var getAps = function(){
 		drFactory.getAppointments(function(data){
 			$scope.aps = data;

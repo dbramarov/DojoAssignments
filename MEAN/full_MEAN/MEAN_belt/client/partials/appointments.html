@@ -19,7 +19,7 @@
 			<td>{{app.time | date:"h:mma"}}</td>
 			<td>{{app.name}}</td>
 			<td>{{app.complain}}</td>			
-			<td><button ng-click='removeApt(app._id)'>delete</button></td>
+			<td><button ng-if='app.name==user' ng-click='removeApt(app._id)'>delete</button></td>
 		</tr>
 	</table>
 	<p>Search Appointments: <input type="text" ng-model='filter_apt'></p>

@@ -4,8 +4,6 @@ app.factory('aptFactory', ['$http', function($http) {
   factory.new = function(newApt, user, callback){
   	$http.post('/new/'+user, newApt).then(function(returned_data){
   		if(typeof(callback) == "function"){
-  			console.log(returned_data.data)
-  			console.log(returned_data)
         	callback(returned_data.data);
         }
   	})

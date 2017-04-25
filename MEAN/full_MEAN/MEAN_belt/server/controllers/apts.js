@@ -5,14 +5,22 @@ module.exports = {
 
 	new: function(req, res){
 			Apt.find({date: req.body.date}, function(err, apt){
+				console.log(apt);
 				if(err){
-					res.json(err)
+					res.json(err);
 				}
-				console.log(apt.length)
 				if(apt.length >= 3){
 					res.json({errors:"To many apointments today!"})
 				}
 				else{
+					Apt.findOne({date: req.body.date, name: req.params.user}, function(err, user1){
+						if(err){
+						res.json(err);
+						}
+						if(user1){
+							res.json({errors: "Only one apointment per day!"})
+						}				
+						else{
 							Apt.create({name: req.params.user, date: req.body.date ,time: req.body.time ,complain: req.body.complain}, function(err, apt){
 								if(err){
 									res.json(err);
@@ -21,8 +29,9 @@ module.exports = {
 									res.json(apt);
 								}
 							})	
-				}					
-													
+						}
+					})
+				}									
 			})
 	},
 

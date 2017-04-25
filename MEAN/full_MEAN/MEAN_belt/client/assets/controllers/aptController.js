@@ -14,11 +14,10 @@ app.controller('aptController', ['$scope','aptFactory','$location', '$cookies', 
         }
         else{
             aptFactory.new($scope.newApt, user, function(data){
-                console.log(data);
                 if(data.errors){
                     if(typeof(data.errors) == "object"){
                         angular.forEach(data.errors, function(v, k){
-                        $scope.messages.push(data.error[k].message);
+                        $scope.messages.push(data.errors[k].message);
                         })
                         $location.url("/newApt");
 
