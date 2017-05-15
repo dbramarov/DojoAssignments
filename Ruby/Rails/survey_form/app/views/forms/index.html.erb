@@ -1,0 +1,27 @@
+<h1>Survey Form</h1>
+
+<form action="/form" method="post">
+
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <p>Your Name: <input type="text" name="form[name]"></p>
+    <p>Dojo Location:	
+    <select name="form[dojo_location]"> 
+	    <option>Washington DC</option>
+	    <option>Seattle</option>
+	    <option>San Fransisco</option>
+	    <option>Colorado</option>
+    </select></p>
+    <p> Favorite Language:
+    <select name="form[favorite_language]">
+    	<option>JavaScript</option>
+    	<option>CSS</option>
+    	<option>HTML</option>
+    	<option>Ruby</option>    	
+    </select>
+    </p>
+    <p>Comment (optional):<textarea name="form[comment]"></textarea></p>
+
+
+    <input type='submit' value='Submit'>
+
+</form>
