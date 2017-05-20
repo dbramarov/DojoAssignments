@@ -29,7 +29,7 @@ class RpgController < ApplicationController
     end
 
     session[:gold] += gold
-    # redirect_to 'rpg/index'
+
     redirect_to :root
 
   end

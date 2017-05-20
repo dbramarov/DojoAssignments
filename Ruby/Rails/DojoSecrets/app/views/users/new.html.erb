@@ -1,0 +1,19 @@
+<% if flash[:errors] %>
+  	<% flash[:errors].each do |err| %>
+  		<p style="color: red;"><%= err %></p>
+  	<% end %>	
+<% end %>
+
+<form action="/users" method="post">
+   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <p>Name: <input type="text" name="Name" placeholder="Name" required></p>
+   	<p>Email: <input type="text" name="Email" placeholder="Email" required></p>
+   	<p>Password: <input type="password" name="Password" placeholder="Password" required></p>
+   	<p>Password Confirm: <input type="password" name="Password_Confirmation" placeholder="Password Confirm" required></p>
+   <input type="submit" value="Join">
+</form>
+
+<form action="/sessions/new" method="get">
+   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+   <input type="submit" value="Go to Login page">
+</form>
