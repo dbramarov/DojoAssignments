@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'likes/create'
-
-  get 'likes/destroy'
-
   get 'users/login' => 'users#login'
 
   post 'users/login' => 'users#check'

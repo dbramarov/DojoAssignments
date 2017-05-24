@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_many :secrets
   has_many :likes, dependent: :destroy
-  has_many :secrets_liked, through: :likes, source: :secret
+  has_many :secrets, through: :likes
 	
   has_secure_password
   EMAIL_REGEX = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]+)\z/i

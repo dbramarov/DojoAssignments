@@ -1,0 +1,59 @@
+<h1><%= @event.name %></h1>
+
+<form style="display: inline-block;" action="/users/logout" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Log Out">
+</form>
+
+<form style="display: inline-block;" action="/events" method="get">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="submit" value="Events Dashboard">
+</form>
+
+<p><strong>Host:</strong> <%= @event.user.first_name %> <%= @event.user.last_name %></p>
+<p><strong>Date: </strong><%= @event.date.strftime("%B %d, %Y") %></p>
+<p><strong>Location:</strong><%= @event.city %>, <%= @event.state %> </p>
+<p><strong>Number of people joining the event:</strong> <%= @attendings.count %>  </p>
+
+<table>
+	<tr>
+		<th>Name</th>
+		<th>City</th>
+		<th>State</th>
+	</tr>
+	<% @attendings.each do |attending| %>
+		<tr>
+			<td><%= attending.user.first_name %> <%= attending.user.last_name %></td>
+			<td><%= attending.user.city %></td>
+			<td><%= attending.user.state %></td>
+		</tr>
+	<% end %>
+</table>
+
+
+
+<hr>
+<h3>Discussion about this event:</h3>
+<div style="border: 1px solid black; height: 400px; width: 400px; overflow: scroll; padding: 10px; overflow-x: hidden;">
+	<% @comments.each do |comment| %>
+		<% if comment.event_id == @event.id %>
+			<p><strong><%= comment.user.first_name %> says:</strong></p>
+			<p><%= comment.content %></p>
+			<hr>
+		<% end %>
+	<% end %>	
+</div>
+
+	<% if flash[:errors] %>
+	  	<% flash[:errors].each do |err| %>
+	  		<p style="color: red;"><%= err %></p>
+	  	<% end %>	
+	<% end %>
+
+	<form action="/comments/<%= @event.id %>" method="post">
+		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+		<p>Add Comment:</p>
+		<p><textarea style="width: 400px; height: 70px;" name="content" required></textarea></p>
+		<input type="submit" value="Submit Comment">
+	</form>	
