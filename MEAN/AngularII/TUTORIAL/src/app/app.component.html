@@ -1,0 +1,321 @@
+<div id='container'>
+    <h1>{{ title }}</h1>
+    <p class='code'><em>Text in red is code</em></p>
+    <div>
+        <h2>Setup</h2>
+            <h3>Creating an Angular App</h3>
+                <p>* navigate to the folder directory you want your new app *</p>
+                <p class='code'>ng new myFirstAngularApp</p>
+            <h3>Generating Components, Services, and Classes</h3>
+                <p>* navigate into your new angular application folder *</p>
+                <p class='code'>ng generate component my-component</p>
+                <p class='code'>ng generate service my-service</p>
+                <p class='code'>ng generate class my-class</p>
+            <h3>Launching the App</h3>
+                <p class='code'>ng serve</p>
+                <p>Run on <em>http://localhost:4200</em></p>
+                <hr class='style-two'>
+    </div>
+    <div>
+        <h2>Typescript</h2>
+            <h3>Basic Types</h3>
+                <p class="code"> var myString: string = "This is a string"; </p>
+                <p class="code"> var myNumber: number = 7; </p>
+                <p class="code"> var myBoolean: boolean = true; </p>
+                <p class="code"> var arrayOfNumbers: number[]; ( can also be string[] ) </p>
+                <p class="code"> var arrayOfNumbers: Array<number / string / etc>; </p>
+                <p class="code"> var anything: any = 7; </p>
+                <hr class='style-two'>
+            <h3>Variable Declarations</h3>
+                <p>var - is used when we want to define the scope, and this will be scoped within functions only.</p>
+                <p>let - is used when we want to define the scope, within blocks (within curly braces), this includes loops, a variable declared as a let within an if block, or for loop block, will not be defined outside of the if block, or the for loop block.</p>
+                <p>const - is similar to let, in that it's scoped within blocks, but we cannot change it's type, or value once set. Note: if an object is const, we can't change the object's structure (such as adding, or replacing keys), but we can change the object's values.</p>
+                <hr class='style-two'>
+    </div>
+    <div>
+        <h2>Component - Data</h2>
+            <h3>Component</h3>
+                <p>Components offer "reusable building blocks for an application". They hold the HTML, CSS and JavaScript for that piece of the application, and we can use them by their unique selector name.</p>
+                <p>(AppComponent) which always loads first. This (what you are currently viewing) is considered the root component and highest level component. Data stored in this component can be passed down through the entire application.</p>
+                <p>This component will load because in our root index.html file in our application, we used it's selector tag.</p>
+                <h4>On our app.component.ts file</h4>
+                <p>@Component, this is a type of decorator, which is a function given an object as a parameter. This object holds meta data which gives details to our decorator and its functionality.</p>
+                <p>The immediate class that follows the decorator export class AppComponent (curly braces) will inherit all of this meta-data and functionality of the @Component decorator.</p>
+                <p>app.component.ts which includes export class AppComponent (curly braces) will be where all your TypeScript code will go - and essentially all of our logic for this particular component. This is linked to the template file app.component.html and styling file app.component.css.</p>
+                <hr class='style-two'>
+            <h3>Interpolation</h3>
+                <p>When we need to print variables in our template, we use interpolation. These variables derive from our Components, they could be variable we define, or objects that are returned to us</p>
+                <p>When we define variables with values in our Component's Class, and want these values to be printed in our Template using INTERPOLATION. Within our Template file, we use double curly brackets and insert the variable name in the middle</p>
+                <p>Below we are displaying variables 'x' and 'y', numbers 10 and 5 respectively. These variables are defined in our APP COMPONENT'S CLASS</p>
+                <p class="code">{{ x }}</p>
+                <p class="code">{{ y }}</p>
+                <p>We can also have OBJECTS and ARRAYS in the CLASS, and printed below are the first names and last names of two people. These two people are saved in OBJECTS within an ARRAY. To access their information we will be FOR LOOPING over the ARRAY using '*ngFor'. *placed INSIDE the ELEMENT TAG</p>
+                <p class="code" *ngFor='let user of users, let i=index'>
+                    Firstname: {{ users[i].firstname | json }}
+                    Lastname: {{ users[i].lastname | json }}
+                </p>
+                <p class="code">The general format for '*ngFor' is '*ngFor='let one of many, let i=index''</p>
+                <hr class='style-two'>
+            <h3>Data Binding</h3>
+                <p>We use this to BIND DATA to an HTML element attribute, IE the input element tag. To bind data we must place square brackets around the attribute and have it evaluate variables in our AppComponent class. The format is [HTML attribute]='some variable in AppComponent class'.</p>
+                <p>***This is ONE-WAY BINDING</p>
+                <input type="text" name="" [value]="users[0].firstname">
+                <p>Above we BOUND the firstname of the first object in our users list to the value attribute in the input element tag.</p>
+                <hr class='style-two'>
+            <h3>Pipes</h3>
+                <p>Pipes are filters, they help us transform displayed values within a template, for better presentation and readability. The following pipes (filters) are built into Angular (however we can also make our own custom pipes).</p>
+                <p>json pipe is (and should be) very commonly used when coding. It allows you to view the data you expect in the template file, without having to question or guess if the right data is present and available.</p>
+                <p>Example below</p>
+                <p class="code">{{ users | json }}</p>
+                <p>Example below of the same 'users' array above but without the json filter</p>
+                <p class="code">{{ users }}</p>
+                <p>date pipe is also used to manipulate the visual representation of datetime.</p>
+                <p class="code">Today's Date without the date pipe: {{ today }}</p>
+                <p class="code">Today's Date WITH the date pipe: {{ today | date:'medium' }}</p>
+                <hr class='style-two'>
+            <h3>Structural Directives</h3>
+                <p>These directives allow us to hide/show elements based on variable conditions, and even repeat an element (such as a list item) for each variable in an array, so with 1 line, we can create a list of names that use an Array of names from our Component class.</p>
+                <p>Structural Directives are Angular built-in directives which help us "...change the DOM layout by adding and removing DOM elements." This includes things that help us repeat and hide elements. The most commonly used Structural Directives are the *ngIf and *ngFor.</p>
+                <h4>*ngIf</h4>
+                    <p>Allows us to control an element's visibility on our page. For example, here is a simple component that includes a basic *ngIf structural directive. The value of the directive needs to evaluate to either true or false - this will dictate if the element will be visible or not.</p>
+                    <p>In our AppComponent class we set 'x' as 10. Below we created a div which will only display if the value of 'x' is less than 15.</p>
+                    <p class="code" *ngIf='x < 15'>The value of 'x' is indeed less than 15!</p>
+                    <p>The p element tag above was displayed because our 'x' value is set to 10, if we changed the 'x' value to anything higher than or equal to 15 it wouldn't print.</p>
+                <h4>*ngFor</h4>
+                    <p>Allows us to repeat an element and expose a variable for each instance of the element that is equal to each part of that array. So essentially, it takes an array and returns each part of the array in the following format: *ngFor='LET ONE OF MANY', IE 'LET USER OF USERS' or 'LET NUMBER OF NUMBERS'.</p>
+                    <p>Below we will iterate over 'array' [1, 2, 3, 4] in our AppComponent class and return each element inside of it within their own p element tags.</p>
+                    <p class="code" *ngFor='let number of numbers'>
+                        {{ number }}
+                    </p>
+                    <p>If we need the value of each element in the array, as well as the index in which we are currently on, we write the *ngFor a little differently as shown here: '*ngFor let hero of heroes, let i=index'</p>
+                    <p class="code" *ngFor='let number of numbers, let i=index'>
+                        {{ number }}...Index: {{ i }}
+                    </p>
+                    <p>Above we see the elements AND their INDEXES</p>
+                    <hr class='style-two'>
+            <h3>Attribute Directives (Styling)</h3>
+                <p>We can do inline styling using properties set to variables in our AppComponent class using [ngStyle]. In our class we've set 'fontcolor' to string 'blue', and we will do inline styling using [ngStyle]. *Note how the variable 'fontcolor' is NOT QUOTED, only CSS PROPERTIES are QUOTED</p>
+                <p><strong>Important: quotes OUTSIDE curly braces must be DOUBLE, while quotes INSIDE curly braces (for CSS properties) must be SINGLE</strong></p>
+                <span [ngStyle]="{
+                    'color': fontcolor,
+                    'font-weight': 'bold'
+                    }">
+                    ngStyle w/Variable
+                </span>
+                <p>Now lets use Angular's method of using [ngClass], this allows us to pass an object into [ngClass]="" with class names as the keys and booleans as the values. If the value is true, the class will be applied, if its false, it won't. Here is an example where we want the class of red to be applied and bold to not be applied.</p>
+                <p>We have two classes set in the CSS, one is set to display text in green, while the other will display text in blue.</p>
+                <p [ngClass]="{ 'ngClassGreen': true, 'ngClassBlue': false }">I should be green and not blue because ngClassGreen is set to true in [ngClass], and ngClassBlue is set to false.</p>
+                <p [ngClass]="{ 'ngClassGreen': false, 'ngClassBlue': true }">REVERSED! I should be blue and not green because ngClassBlue is set to true in [ngClass], and ngClassGreen is set to false.</p>
+                <p>This is great but it's still static - meaning, we are hard coding 'true' and 'false'. Alternatively, we can define variables in our 'app.component.ts' as true or false, and then use them in the [ngClass] object. Later when we learn click events, we can change the true variables to false and vise-versa, giving us a very effective way to change styling based on user interactions.</p>
+                <p [ngClass]="{ 'ngClassGreen': switchon, 'ngClassBlue': switchoff }"> Variables 'switchon' is set to boolean true in our AppComponent class, and that was used in the [ngClass] object to keep me green, and 'switchoff' is set to boolean false to make sure I'm not blue.</p>
+                <hr class='style-two'>
+    </div>
+    <div>
+        <h2>Component - Events</h2>
+            <h3>Event Listeners</h3>
+                <p>We can add events on HTML elements, when these events occur, we can trigger code to run. This gives us the ability to make our applications interactive with the user.</p>
+                <p>EVENT BINDING is a way to add event listeners on HTML elements (within our template) to trigger JavaScript code (in our class file) within that particular component.</p>
+                <p>For example, to BIND a CLICK EVENT on a button, we would give the button an attribute of the event name 'click' (can be anything in HTML like 'mouseenter') and wrap it in parentheses, (click), then we give it a value to evaluate. The evaluating block of code in quotes "" will be whatever we want to do when this button is clicked. In example, we can have it invoke a function from our AppComponent class.</p>
+                <p>In the example below we will provide a button that when clicked will increment the value of our 'x' variable (which is already set to 10) by 10</p>
+                <button (click)='increaseXBy10()'>Increase variable 'x' by 10</button>
+                <p class="code">{{ x }}</p>
+                <p>The CLICK EVENT above INVOKES the function 'increaseXBy10' in our AppComponent class which has the logic to increase the value of our variable 'x' by 10.</p>
+                <button (mouseenter)='increaseYBy10()'>Increase variable 'y' by 10</button>
+                <p class="code">{{ y }}</p>
+                <p>The MOUSEENTER EVENT above INVOKES the function 'increaseYBy10' in our AppComponent class which has the logic to increase the value of our variable 'y' by 10.</p>
+                <hr class='style-two'>
+            <h3>Forms</h3>
+                <p>Forms in Angular allow us to not only retrieve information from a user, but also include validations on each individual input.</p>
+                <p><strong>TWO-WAY BINDING:</strong> Angular has 2 different methods of creating forms. We will focus on Template Driven Forms. With this approach, we take advantage of two-way bound objects to store all the data related to the inputs of the form. Let's take a look at the following sample:</p>
+                <p>We have a form below that takes in a person's email address, and we are doing EVENT BINDING here, we are BINDING a SUBMIT EVENT on a form and having it invoke the 'emailSubmission' function in our AppComponent class. (But for this specific example we won't submit, we'll submit in the second example after this)</p>
+                <p>***For this to work we have a 'personWithEmail' object in our AppComponent class with the key 'email' and value of empty string ("")</p>
+                <p>***We must also also <strong>import FormsModule</strong> for this to work, check the app.module.ts file</p>
+                <form (submit)="emailSubmission()">
+                    <input type="text" name="email" [(ngModel)]="personWithEmail.email">
+                </form>
+                <p class="code">{{ personWithEmail.email | json }}</p>
+                <p>If we look at the template, we will notice we have an input with name='email', and a new attribute [(ngModel)] set to the object's key 'personWithEmail.email'. This new attribute [(ngModel)]="personWithEmail.email" is what <strong>converts our object 'personWithEmail' into a TWO-WAY BOUND OBJECT.</strong> Now, we can print the value we initially set from our class, to our template, as well as reflect changes made on our template back to our AppComponent class.</p>
+                <p>***Remember to always include a unique name attribute for each input, Angular utilizes this to keep track of different inputs!</p>
+                <hr class='style-two'>
+                <h4>Submitting the form</h4>
+                    <p>We didn't submit the form above, let's do that here</p>
+                    <p>With this example, personWithEmail.email will initially be an empty string, and will reflect the value of what we type in the input in real time. When we are ready to submit this data, we will use the (submit) event on the form, to INVOKE a FUNCTION we made up called emailSubmission(), since we already have the personWithEmail object in our class, and it's two way bound and up to date with the content the user entered, we now just need to use it by referencing it.</p>
+                    <p>Lastly, whatever we do with this personWithEmail object, once we are done with it, we need to reset the object back to a new version of what we initially set it to. We do this because they are objects, and we are COPYING the OBJECT's REFERENCE, and NOT it's VALUE, so we have to <strong>point the user object to ANOTHER object</strong>, we can't have it POINTED TO the SAME OBJECT ANYMORE.</p>
+                    <p>We will be REDEFINING the personWithEmail object<p>
+                    <p>Here is an example of pushing the personWithEmail object into an array called emails, and then resetting the personWithEmail object to a new object with an empty string.</p>
+                    <form (submit)="emailSubmission()">
+                        <input type="text" name="email" [(ngModel)]="personWithEmail.email">
+                        <input type="submit">
+                    </form>
+                    <p class="code">{{ personWithEmail.email | json }}</p>
+                    <p class="code" *ngFor='let email of emails, let i=index'>{{ emails[i].email | json }}</p>
+                    <hr class='style-two'>
+                <h3>Form Validations</h3>
+                    <h4>Input Controllers</h4>
+                    <p>to identify the validation status of an input, we need to look at that input's <strong>CONTROLLER</strong>. Each input, including the form, can expose a controller object for us to utilize. To do this, we use the following format within the tag of either the form, or input (as an attribute key-value pair) #email='ngModel', now we have a CONTROLLER OBJECT</p>
+                    <p>Now we can use this object to identify if errors exist due to validation rules like this: {{ email.errors }}. Printing the errors can be done anywhere within our template file. This email object is dynamic, as we type into each input, the controller (in this case 'email') will change it's status.</p>
+                    <p><em>Attribute and Controller CANNOT have same name!</em></p>
+                    <p>Let's try this out with our form example from above</p>
+                    <form (submit)="emailSubmission()">
+                        <input type="text" name="email" [(ngModel)]="personWithEmail.email" required minlength="8" maxlength="16" pattern='^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$' #email="ngModel" placeholder="Must be between 8 and 16 chars, have @, and . (email format)" size="50">
+                        <input type="submit">
+                    </form>
+                    <p>{{ personWithEmail.email | json }}</p>
+                    <p *ngFor='let email of emails, let i=index'>{{ emails[i].email | json }}</p>
+                    <p class="code">'null' if all conditions met to be valid.....{{ email.errors | json }}</p>
+                    <p class="code">'true' if valid.....{{ email.valid | json }}</p>
+                    <h4>Built-in Classes for Validation</h4>
+                    <p>Angular adds classes on the form and each input based on each input validation status. Meaning, as long as we have validations in input tags, we can style certain classes in our stylesheet (specific to that component), and angular will insert and remove these classes on each input as well as the form, as their status change.</p>
+                    <p>***Notice above how the text color chnages from PURPLE BOLD to GREEN as we enter an email address with the correct length and email format requirements</p>
+                    <h4>REGISTRATION FORM</h4>
+                    <p>Now lets look at a little more filled out registration form for better large picture context. We are adding a CLASS of User in this example, so we can generate a NEW INSTANCE of User with pre-defined fields, this is the SAME result AS HARD CODING an OBJECT LITERAL, but we are using OOP to make our code more DRY (DON'T REPEAT YOURSELF).</p>
+                    <p class="code">ng generate class User <em>(in the app folder)</em></p>
+                    <p>***Since this is a separate file, we need to import the class file to use it. Every time we use this class, either to generate new objects, or set the data type to this class, we need to import it first.</p>
+                    <p>***Refer to user.ts to see structure of class, note the 'CONSTRUCTOR' method and the PUBLIC attribute/property for the key</p>
+                    <p>Below we have a registration form with fields:</p>
+                    <ul [ngStyle]="{'text-align':'left'}">
+                        <li>Email</li>
+                        <li>Name</li>
+                        <li>Password</li>
+                    </ul>
+                    <form (submit)="registrationFormSubmission()" #formData='ngForm'>
+                        <input
+                            type="text"
+                            name="email"
+                            required
+                            minlength="4"
+                            maxlength="24"
+                            [(ngModel)]="user.email"
+                            #email1='ngModel'
+                            pattern='^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$'
+                            placeholder="Email"
+                        />
+                        <input
+                            type="text"
+                            name="name"
+                            required
+                            minlength="4"
+                            maxlength="24"
+                            [(ngModel)]="user.name"
+                            #name='ngModel'
+                            placeholder="Name"
+                        />
+                        <input
+                            type="text"
+                            name="password"
+                            required
+                            maxlength="15"
+                            pattern="^([a-zA-Z0-9@*#]{8,15})$"
+                            [(ngModel)]="user.password"
+                            #password='ngModel'
+                            placeholder="Password"
+                        />
+                        <div *ngIf="formData.valid">
+                            <input type="submit">
+                        </div>
+                    </form>
+                    <p class="code">{{ user | json }}</p>
+                    <p class="code">{{ usersarray | json }}</p>
+                    <p>Here, our [ngClass] also come in to show us whether or not our inputs are meeting the conditions set by our validations</p>
+                    <p>With large forms like this, we may want to catch all parts of the form in an object, just like we EXPOSED the CONTROLLERS of each input with (for example: #password='ngModel'), we can do the same for the entire form, which within it, we will have access to each input controller as well. We do this by adding the same attribute pattern with 'ngForm': #formData='ngForm' (we place this in our form tag as a key-value pair), 'ngForm' and 'ngModel' are both key words made by Angular, we use them to create controller objects.</p>
+                    <p>We used the FORM CONTROLLER, and *ngIf in a div around the 'register' button, to display the 'register' button ONLY IF ALL VALIDATIONS PASS</p>
+                    <hr class='style-two'>
+        <div>
+            <h2>Architecture</h2>
+                <h3>Application Architecture</h3>
+                    <p>AppComponent is the ROOT component, and will be the MASTER PARENT. All other components WITHIN the ROOT component will be its CHILD components.</p>
+                    <p>Now, it's important to understand where we hold data which we retrieve from the service. Data does not get stored in the service (ever). Data is stored in the highest level Component needed, so all child components may receive data through an @Input(), or call to a parent through a @Output() event.</p>
+                    <p>***We want to avoid components needing to request data from sibling components (at the same level).</p>
+                    <p><strong>IMPORTANT: Data is stored in the highest level Component so all of that component's child components may retrieve the data from the parent component.</strong></p>
+                    <p>Moving forward we will be working with two components, both nested in our ROOT component, one will be the immediate child while the other will be the grandchild.</p>
+                    <hr class='style-two'>
+                <h3>Nested Components</h3>
+                    <p><em>It's important that we create new components (Using the Angular CLI) in the correct folders. IE for this example we will create our child in the ROOT component folder, while the grandchild will be created in the child component folder.</em></p>
+                    <p>The AppComponent will always load (as the initial component), but every other component we make, we can have it load within the AppComponent's HTML template by using it's selector.</p>
+                    <div>
+                        <p class="code"><app-child></app-child></p>
+                    </div>
+                    <p>If we were to reuse the above tag multiple times in our AppComponent template, we would see the TaskComponent's template repeated multiple times - this goes back to the idea of a Component-based Architecture, and the ability to reuse code without rewriting the code.</p>
+                    <p>Below we are loading the child component again</p>
+                    <div>
+                        <p class="code"><app-child></app-child></p>
+                    </div>
+                    <p>***Note that we NESTED the grandchild component WITHIN our child component, in our child component we used the granchild's SELECTOR as a TAG to load it.</p>
+                    <p>***Also note how we are using a CSS class from THIS AppComponent to change the text color in the child component, the text color in the child component is set to the default black.</p>
+                    <hr class='style-two'>
+                <h3>AppModule</h3>
+                    <p><em>When deleting components be sure to REMOVE them from the AppModule's IMPORTS and DECLARATIONS!</em></p>
+                    <p>IMPORTANT: The CLI will create our new Components and register them for us on the parent module, however this is not the case with Services. Be aware, in the future when we create a Service for our application, Angular's CLI will not automatically register the Service to our application. We would have to do it manually.</p>
+                    <p><em>The Forms Module must be manually imported into AppModule whenever we are dealing with Forms.</em></p>
+                    <hr class='style-two'>
+                <h3>Inputs</h3>
+                    <p>It's a common occurrence when we want a child component to receive the same data/information as the current parent component (and keep it up to date). For example, we have the initial AppComponent which may hold an object; we want this object to be available in a child component where we will display the object. To do this, we will be using the <strong>@Input() decorator</strong>.</p>
+                    <h4>How to use the @Input() Decorator</h4>
+                        <p>First thing we have to do is to LOAD the CHILD component in the PARENT template, we already know how to do this from above.</p>
+                        <p><em>***For the purposes of this exercise we will create another child component called 'secondchild'</em></p>
+                        <p class="code">ng generate component secondchild</p>
+                        <p>Second thing we will have to do is DEFINE an ATTRIBUTE and INPUT. Now, we will input into the app-secondchild component tag, the object 'object' by creating an attribute on the tag. The attribute name will be the same name as the data which we will have inside that component, and the value will define its value. For example, here we are pushing into the app-secondchild tag, the variable named 'object'. <em>***'object' is in our app.component.ts</em></p>
+                        <p><strong>NOTE: We are using DATA BINDING, therefore we need to use brackets around the new attribute</strong></p>
+                        <p>The ATTRIBUTE name of [objPassedDown] will be the variable we expect inside the child component, and it's VALUE will be the evaluation of the 'object' variable.</p>
+                        <p>Let's look at the secondchild component, we will see that we expect the 'obPassedDown' variable with the <em>@Input() decorator.</em></p>
+                        <p>From there, we can use the 'objPassedDown' variable to print in the secondchild component template.</p>
+                        <p>The advantage comes when the 'object' variable from our AppComponent changes, Angular will also update the 'objPassedDown' variable in our secondchild component. <strong>DATA BINDING!</strong></p>
+                        <p>@Input() BINDS DATA!</p>
+                        <p><em>NOTE: We need to import the Input decorator to use it.</em></p>
+                        <div>
+                            <p class="code"><app-secondchild [objPassedDown]='object'></app-secondchild><p>
+                        </div>
+                        <hr class='style-two'>
+                <h3>Outputs</h3>
+                    <p>Alternatively from inputting data from a parent component to a child, there are cases where we need the <strong>CHILD component to either RETURN DATA to a PARENT, or TRIGGER a FUNCTION on the PARENT'S CLASS</strong>. To do this we use the @Output() decorator.</p>
+                        <h4>How to use the @Output() Decorator</h4>
+                            <p>We want the child component to either send data to the parent, or trigger an action on the parent. To do this, we will use @Output() as well as EventEmitter.</p>
+                            <p><strong>@Output() is used to define an event we expose to the parent's template, and the EventEmitter will be the way we invoke that event.</strong></p>
+                            <p><em>***To demonstrate this we will be using our secondchild component as the parent and the grandchild component as the child.</em></p>
+                            <p>Important: <strong>Import OUTPUT and EVENTEMITTER to the child component!</strong></p>
+                            <div>
+                                <p class="code"><app-secondchild></app-secondchild></p>
+                            </div>
+                            <p>Above we see everything action. Below are the four steps we took to pass variable 'object1' from a CHILD component to its PARENT:</p>
+                            <ol [ngStyle]="{'text-align':'left'}">
+                                <li>In grandchild component (CHILD) Class | We create an Output of an EventEmitter object called 'eventSendingDataUp', this is the EVENT that our SELECTOR TAG in the parent TEMPLATE will be listening for. <em>(This is also where we declare and define our variable 'object1' which we will be passing up to the PARENT)</em></li>
+                                <br>
+                                <li>In grandchild component (CHILD) Template | We create a button to INVOKE the FUNCTION 'functionSendingDataUp', and in that function we will call on our new EventEmitter 'eventSendingDataUp' and EMIT it.</li>
+                                <br>
+                                <li>In secondchild component (PARENT) Template | We will expect that event on the app-grandchild tag -> (eventSendingDataUp)='functionReceivingDataFromChild($event)', and ON EMIT we will INVOKE a FUNCTION we made called functionReceivingDataFromChild($event). We pass it $EVENT which is a built in object that will give us the PARAMETERS <em>(Used to get data from the child component).</em></li>
+                                <br>
+                                <li>In secondchild component (PARENT) Class | We will create the 'functionReceivingDataFromChild' function, expect the PARAMETER and use the data (variable 'object1') as we wish. This <strong>function will only run when the child component emits.</strong></li>
+                                <br>
+                            </ol>
+                            <p><strong>This process can be repeated from child to parent and can be chained for nested components.</strong></p>
+                            <hr class='style-two'>
+            </div>
+            <div>
+                <h2>Services</h2>
+                    <h3>Services</h3>
+                        <p><strong>Services are PROVIDERS (classes with methods)</strong></p>
+                        <p>We can inject a Service into any Component, and therefore any Component can call those methods.</p>
+                        <p>Service methods are used for 2 things: They either manipulate data for us, or <strong>more commonly are used to make API calls to our backend server, or other external APIs using the HTTP module.</strong></p>
+                        <p><em>NOTE: Services are not used to store data</em></p>
+                            <h4>How to create a Service and inject it in a Component</h4>
+                                <p class="code">ng generate service http</p>
+                                <p>This will create a class called HttpService. <strong>The CLI will NOT automatically register our new Service with our AppModule, therefore we need to navigate to our app.modules.ts file, import the service file and include the class in the providers array.</strong></p>
+                                <p>Now to inject this service in a component, we use DEPENDENCY INJECTION, which is done by expecting the service as a parameter in our Component's constructor: constructor(private _httpService: HttpService) <strong>(_httpService variable will take on the instance of the class HttpService)</strong>, we also need to make sure that our Component file has imported the service class import HttpService from './http.service';</p>
+                    <h3>HTTP and Promises</h3>
+                        <p>HTTP Module is a library which allows us to make AJAX-type HTTP requests to any end-point (API). These requests are unique in a way that they are RETURNED TO US as Observables, but we will convert them to PROMISES (we don't need Observables for HTTP requests, since it's 1 request and 1 response). To do this, we will use the same HttpService we created from the section above.</p>
+                        <h4>Injecting the HTTP module in the Service</h4>
+                            <p>To use the HTTP module, we will <em>inject it in the service.ts (class HttpService) just like we did with the Service in the component.ts (class AppComponent) through DEPENDENCY INJECTION.</em> Then we will have the Service method RETURN the HTTP PROMISE to whatever Component INVOKES the METHOD.</p>
+                            <p>Notice that the _http.get() has 2 functions chained to it, .map and .toPromise(). The .map method is used to convert the returned object from the HTTP request into a JSON formatted object, and the .toPromise method is used to force the _http.get() call to return us a Promise instead of an Observable.</p>
+                            <p><em>In the example below we will try and get my (Refayat Haque's) GitHub user information</em></p>
+                            <p><strong>AppComponent will call the Service, specifically the retrieveGitHubInfo() method, retrieve it's promise and to invoke the HTTP request, we will chain the .then() callback method.</strong></p>
+                            <p>Now, when we call getRefayatGitHubInfo() from our AppComponent, we will <em>retrieve the Promise and invoke the request due to us chaining the .then() callback method</em>. On a successful server response, this will invoke the .then() callback and redefine our AppComponent's 'refayatGitHubInfo' empty array, to the object that was returned from our HTTP request.</p>
+                            <p>If the HTTP request failed for some reason, the .then() callback will not be invoked and alternatively, <em>the .catch() callback will be invoke, and we will be given the error object in the first parameter. We can use the error object to console log and identify the error code.</em></p>
+                            <p>See this in action below! Upon clicking the button we will be able to see all of my GitHub user information in the form of an object.</p>
+                            <p><strong>Be sure to import the HttpModule into your module.ts file, and also place it in the imports array!</strong></p>
+                            <p><strong>Be sure to also import 'Observable' into your service.ts file, and also imports all additional 'rxjs' functions (check service.ts file for more info)</strong></p>
+                            <button (click)='getRefayatGitHubInfo()'>Click to see Refayat's GitHub stats</button>
+                            <p class="code">{{ refayatGitHubInfo | json }}</p>
+                            <hr class='style-two'>
+                <h2>Routing</h2>
+            </div>
+</div>

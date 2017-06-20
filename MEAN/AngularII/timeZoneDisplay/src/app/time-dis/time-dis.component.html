@@ -1,0 +1,9 @@
+<h1>{{title}}</h1>
+<button (click)='pst()' [ngClass]="{'on': switch1}">PST</button>
+<button (click)='mst()' [ngClass]="{'on': switch2}">MST</button>
+<button (click)='cst()' [ngClass]="{'on': switch3}">CST</button>
+<button (click)='est()' [ngClass]="{'on': switch4}">EST</button>
+<button (click)='clear()'>Clear</button>
+
+ <h2>{{date | date:'medium'}}</h2>
+ 

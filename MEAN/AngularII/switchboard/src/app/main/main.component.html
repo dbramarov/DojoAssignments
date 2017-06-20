@@ -1,0 +1,9 @@
+<h1 style="margin-left: 400px;">{{title}}</h1>
+
+<div>
+	<div *ngFor="let boxx of boxes; let idx = index" class="box">
+		<button class="red" *ngIf='!boxes[idx]' (click)='color(idx)'>OFF</button>
+
+		<button class="green" *ngIf='boxes[idx]' (click)='color(idx)'>ON</button>
+	</div>
+</div>

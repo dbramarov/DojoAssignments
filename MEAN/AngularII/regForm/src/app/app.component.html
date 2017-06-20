@@ -1,0 +1,54 @@
+<h1>{{title}}</h1>
+
+<div class="outline" style="margin-bottom: 15px;" *ngIf=valid>
+  <p class="green">Thank you for registering with us {{user.firstName}}. We just sent you a confirmation email at {{user.email}}, and we will send all mail to {{user.street}}, {{user.city}}.</p>
+  <p class="green">Have a wonderful day!</p>
+</div>
+
+<div class="outline">
+  <h2>Account Information</h2>
+  <form name="myForm" (submit)="onSubmit()">
+    <div>
+      <p>First Name: <input required type="text" name="firstName" [(ngModel)]='user.firstName' #firstName="ngModel"></p>
+      <div style="color: red; display: inline-block;" *ngIf="firstName.errors">*First Name Is Required</div>
+    </div>
+    <div>
+      <p>Last Name: <input required type="text" name="lastName" [(ngModel)]='user.lastName' #lastName="ngModel"></p>
+      <div style="color: red; display: inline-block;" *ngIf="lastName.errors">*Last Name Is Required</div>
+    </div>
+    <div>
+      <p>Email: <input required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+        type="text" name="email" [(ngModel)]='user.email' #email="ngModel"></p>
+      <div style="color: red; display: inline-block;" *ngIf="email.errors">*Email Is Required and must be proper format</div>
+    </div>
+    <div>
+      <p>Password: <input required minlength="10" 
+        type="password" name="password" [(ngModel)]='user.password' #password="ngModel"></p>
+      <div style="color: red; display: inline-block;" *ngIf="password.errors">*Password Is Required and Must Be at least 10 Characters Long</div>
+    </div>
+    <div>
+      <p>Password Confirmation: <input required type="password" name="passwordconf" [(ngModel)]='user.passwordconf' #passwordconf="ngModel"></p>
+      <div style="color: red; display: inline-block;" *ngIf="user.password != user.passwordconf">*Password Confirm Must Match Password</div>
+    </div>
+    <div>
+      <p>Street Address: <input required type="text" name="street" [(ngModel)]='user.street' #street="ngModel"></p>
+      <div style="color: red; display: inline-block;" *ngIf="street.errors">*Street Is Required</div>
+    </div>
+    <div>
+      <p>Unit/Apt #: <input required type="text" name="unit" [(ngModel)]='user.unit' #unit="ngModel"></p>
+      <div style="color: red; display: inline-block;" *ngIf="unit.errors">*Unit Is Required</div>
+    </div>
+    <div>
+      <p>City: <input required type="text" name="city" [(ngModel)]='user.city' #city="ngModel"></p>
+      <div style="color: red; display: inline-block;" *ngIf="city.errors">*City Is Required</div>
+    </div>
+    <div>
+      <p>I'm Feeling lucky:
+        <input required type="radio" name="lucky" value="yes" [(ngModel)]='user.lucky' #lucky="ngModel">Yes
+        <input required type="radio" name="lucky" value="no" [(ngModel)]='user.lucky' #lucky="ngModel">No
+      </p>
+      <div style="color: red; display: inline-block;" *ngIf="lucky.errors">*Choosing How You Feel Is Required</div>
+    </div>
+  <input *ngIf="firstName.valid && lastName.valid && email.valid && password.valid && passwordconf.valid && street.valid && unit.valid && city.valid && lucky.valid" style="width: 500px; height: 40px;" type="submit">
+  </form>
+</div>
