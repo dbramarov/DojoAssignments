@@ -1,0 +1,31 @@
+<h1>{{title}}</h1>
+
+<form (submit)="onSubmit()">
+  <div>
+    <p class="info">Quote: <textarea required minlength="4" class="text" name="qt" [(ngModel)]="quote.qt" #qt="ngModel"></textarea></p>
+    <div style="color: red; display: inline-block;" *ngIf="qt.errors">*Required and must be greater than 4 characters</div>
+  </div>
+  <div>
+    <p class="info">Author: <input required minlength="1" type="text" name="author" [(ngModel)]="quote.author" #author="ngModel"></p>
+    <div style="color: red; display: inline-block;" *ngIf="author.errors">*Author Is Required</div>
+  </div>
+  <input *ngIf="qt.valid && author.valid; else dis" type="submit" value="Add Quote"   style="width: 300px; height: 40px;">
+  <template #dis><input type="submit" value="Add Quote"  style="width: 300px; height: 40px; background-color: silver;" disabled></template>
+</form>
+
+<h2>Quotes List</h2>
+
+<div class="quote" *ngFor="let box of quotes; let idx = index">
+  <div class="left">
+    <p>{{box.qt}}</p>
+    <p>-{{box.author}}</p>
+    <h4>{{box.votes}} Votes</h4>
+  </div>
+  <div class="right">
+    <button class="green" (click)="up(idx)">Vote Up</button>
+    <button class="red" (click)="down(idx)">Vote Down</button>
+    <button class="dark" (click)="delete(idx)">Delete</button>
+  </div>
+</div>
+
+

@@ -1,0 +1,45 @@
+.text {
+	width: 300px;
+	height: 100px;
+	vertical-align: top;
+}
+
+.quote {
+	border: 1px solid black;
+	padding: 10px;
+	width: 600px;
+	margin-bottom: 10px;
+}
+
+.left {
+	width: 60%;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.right {
+	width: 35%;
+	display: inline-block;
+	vertical-align: top;
+}
+
+button {
+	width: 100%;
+}
+
+.info {
+	display: inline-block;
+}
+
+.green{
+	background-color: #46a046;
+}
+
+.red {
+	background-color: #ca4545;
+}
+
+.dark {
+	background-color: #2b2727;	
+	color: white;
+}
