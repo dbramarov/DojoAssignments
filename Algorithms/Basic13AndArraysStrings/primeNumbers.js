@@ -1,13 +1,18 @@
 //function that will return all prime numbers up to number input
 function primeNums(num){
-	for (var i = 2; i <= num; i++){    //2 - num
-		for (var n = 1; n <= i; n++){
-			if(i%n !== 0 && i%num !== 0){
-				continue;
-			}
-			else{
-				console.log(n);
+	var arr = [2,3];
+	for (var i = 5; i <= num; i++){   
+		var flag = true;
+		for (var n = 0; n < arr.length; n++){
+			if(i % arr[n] == 0){
+				flag = false;
+				break;
 			}
 		}
+		if(flag){
+			arr.push(i);
+		}
 	}
+	console.log(arr);
+	return arr;
 }

@@ -1,0 +1,19 @@
+<h1>{{title}}</h1>
+<div>
+    <form (submit)="getTasks()">
+      <div>
+        <p style="display: inline-block; margin: 0;">Github Username: <input type="text" required name="username" [(ngModel)]="username.name" #name = "ngModel"></p>
+        <div style="color: red; display: inline-block; vertical-align: top;" *ngIf="name.errors">*Username Required</div>
+      </div>
+      <input *ngIf="name.valid; else dis" style="margin-top: 30px; width: 250px; height: 40px;" type="submit" value="Calculate My GitHub Score">
+      <template #dis><input style="margin-top: 30px; width: 250px; height: 40px; background-color: silver;" type="submit" value="Calculate My GitHub Score" disabled></template>
+    </form>
+  <h2>Your Score: {{score}}</h2>
+
+<!--   <h3 *ngIf="score>" style="color: red;">Needs Work!</h3>
+  <h3 *ngIf="score<50" style="color: orange;">A Decent Start!</h3>
+  <h3 *ngIf="score<100" > Doing Good! </h3>
+  <h3 *ngIf="score<200" style="color: green;">Great Job!</h3>
+  <h3 *ngIf='score>200' style="color: blue;">Github Elite!</h3> -->
+
+</div>
