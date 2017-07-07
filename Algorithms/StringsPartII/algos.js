@@ -95,3 +95,27 @@ function DeCode(str){
 }
 
 DeCode('a4b2c1d3');
+
+//Reverse A String
+function stringRev(str){
+  var final = [];
+  var newStr = str.split("");
+  var i = newStr.length-1
+  while(i >= 0){
+    final.push(newStr[i]);
+    i--;
+  }
+  var main = final.join('');
+  console.log(main);
+  return main;
+}
+
+function stringRevTwo(str){
+  var newStr = "";
+  for(var i = str.length-1; i>=0; i--){
+    newStr += str[i];
+  }
+  console.log(newStr);
+  return newStr;
+}
+
