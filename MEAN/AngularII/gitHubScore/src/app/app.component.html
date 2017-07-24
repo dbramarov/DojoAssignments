@@ -1,4 +1,7 @@
 <h1>{{title}}</h1>
+
+<h3 *ngIf="error" style="color:red;">{{error}}</h3>
+
 <div>
     <form (submit)="getTasks()">
       <div>

@@ -7,6 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
+	Food: any[] = [
+		{food: "Bannana"}
+	];
+
+  doSomething(fruit){
+  	this.Food.push(fruit);
+  }
+
+  delete(){
+  	this.Food.pop();
+  }
+  
   constructor() { }
 
   ngOnInit() {

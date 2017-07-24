@@ -13,14 +13,19 @@ export class AppComponent {
   }
   tasks = [];
   score = 0;
+  error;
 
   constructor(private _httpService: HttpService){}
 
   getTasks(){
     this._httpService.retrieveTasks(this.username.name)
-    .then( tasks => { this.tasks = tasks 
+    .then( tasks => { this.tasks = tasks;
     	this.score = tasks.public_repos + tasks.followers;
+      this.error = "";
     })
-    .catch( err => { console.log(err); })
+    .catch( err => { 
+      this.error = "User Does Not Exist"; 
+      this.score = 0;      
+    })
   }  
 }

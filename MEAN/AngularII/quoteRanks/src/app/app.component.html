@@ -15,7 +15,7 @@
 
 <h2>Quotes List</h2>
 
-<div class="quote" *ngFor="let box of quotes; let idx = index">
+<div class="quote" *ngFor="let box of quotes | orderBy: 'box.votes'; let idx = index">
   <div class="left">
     <p>{{box.qt}}</p>
     <p>-{{box.author}}</p>

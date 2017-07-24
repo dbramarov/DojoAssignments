@@ -1,0 +1,9 @@
+<p *ngFor='let food of myFood'>{{food.food}}</p>
+
+<form (submit)="onSubmit()">
+	<p>New Food: <input [(ngModel)]="fruit.food" type="text" name="food"></p>
+	<input type="submit" value="Add Food">
+</form>
+
+<button (click)="delete()">Delete Last Food Item</button>
+
