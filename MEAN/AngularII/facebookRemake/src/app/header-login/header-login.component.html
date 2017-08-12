@@ -1,0 +1,26 @@
+<div class="header">
+	<div class="container">
+		<div class="fb"></div>
+		<div class="login">
+			<form (ngSubmit)="onSubmit()">
+				<table>
+						<tr>
+							<td><p class="label">Email or Phone</p></td>
+							<td><p class="label">Password</p></td>
+						</tr>
+						<tr>
+							<td><input class="input" type="text" name="username" [(ngModel)]='user.username'></td>
+							<td><input class="input" type="password" name="password" [(ngModel)]='user.password'></td>
+							<td><input class="submit" type="submit" value="Log In"></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td><p class="labelLink">Forgot Account?</p></td>
+							<td></td>
+						</tr>
+				</table>
+			</form>
+		</div>	
+	</div>
+</div>
+

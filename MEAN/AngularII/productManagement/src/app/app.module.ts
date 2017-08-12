@@ -5,7 +5,6 @@ import { ProductService } from './product.service';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpModule } from '@angular/http';
 
-
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { ProductListComponent } from './product-list/product-list.component';

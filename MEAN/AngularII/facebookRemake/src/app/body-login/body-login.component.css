@@ -1,0 +1,248 @@
+* {
+/*	border: 1px dashed blue;
+*/}
+
+.leftBody {
+	width: 58%;
+	display: inline-block;
+}
+
+.rightBody {
+	width: 41%;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.text {
+	font-size: 36px;
+	font-weight: bold;
+	letter-spacing: normal;
+	font-family: 'Freight Sans Bold', Helvetica, Arial;
+	color: #333;
+}
+
+.Stext{
+	font-size: 19px;
+	color: #333;
+	font-weight: normal;
+	letter-spacing: normal;
+	font-family: 'Freight Sans Bold', Helvetica, Arial;
+	margin-bottom: 20px;
+	margin-top: 5px;
+}
+
+.body {
+	background-color: #e9ebee;
+	padding-top: 20px;
+}
+
+.containerr {
+	width: 990px;
+	margin: 0 auto;
+}
+
+.inline {
+	padding: 42px 0 24px;
+	font-size: 28px;
+	line-height: 36px;
+	font-weight: bold;
+	letter-spacing: normal;
+	font-family: 'Freight Sans Bold', Helvetica, Arial;
+	color: #333;
+	margin: 0;
+}
+
+.leftText {
+	font-family: inherit;
+	margin-top: 17px;
+	padding-bottom: 10px;
+	display: block;
+}
+
+.img {
+	text-align: center;
+	width: 55px;
+	vertical-align: middle;
+	display: inline-block;
+	margin-right: 16px;
+}
+
+.txt {
+	font-family: inherit;
+	width: 440px;
+	vertical-align: middle;
+	display: inline-block;
+}
+
+.span1 {
+	font-family: 'Freight Sans Bold', Helvetica, Arial;
+	font-weight: bold;
+	letter-spacing: normal;
+	margin-top: 20px;
+	font-size: 17px;
+	line-height: 22px;
+	color: #333;
+}
+
+.span2 {
+	font-family: 'Freight Sans Bold', Helvetica, Arial;
+	margin-left: 10px;
+	font-weight: normal;
+	color: #666;
+	font-size: 15px;
+	line-height: 20px;
+}
+
+form {
+	margin: 0;
+	padding: 0;
+	display: block;
+	font-family: 'Freight Sans Bold', Helvetica, Arial;
+}
+
+.inputH {
+	font-size: 18px;
+	width: 172px;
+	padding: 8px 10px;
+	border-color: #bdc7d8;
+	border-radius: 5px;
+	margin: 0;
+	background-color: #fff;
+	position: relative;
+	border: 1px solid #bdc7d8;
+	margin-bottom: 10px;
+}
+
+.inputF {
+	font-size: 18px;
+	width: 377px;
+	padding: 8px 10px;
+	border-color: #bdc7d8;
+	border-radius: 5px;
+	margin: 0;
+	background-color: #fff;
+	position: relative;
+	border: 1px solid #bdc7d8;
+	margin-bottom: 10px;
+}
+
+#bday {
+	margin: 14px 0px 5px 0px;
+	font-family: 'Freight Sans Bold', Helvetica, Arial;
+	color: #1d2129;
+	font-size: 18px;
+	font-weight: normal;
+}
+
+select {
+	font-size: 13px;
+	font-family: 'Freight Sans Bold', Helvetica, Arial;
+	height: 30px;
+	padding: 5px;
+	border: 1px solid #bdc7d8;
+}
+
+.dates {
+
+}
+
+.why {
+	font-family: 'Freight Sans Bold', Helvetica, Arial;
+	margin-left: 10px;
+	font-size: 11px;
+	max-width: 150px;
+	display: inline-block;
+	vertical-align: middle;
+	color: #365899;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.gender	{
+	margin-top: 10px;
+	display: block;
+	padding-top: 5px;
+}
+
+.gradio {
+	font-family: 'Freight Sans Bold', Helvetica, Arial;
+    padding: 5px 0 5px 4px; 	
+}
+
+.radio {
+	color: #1d2129;
+	font-size: 18px;
+	line-height: 18px;
+	padding: 0 10px 0 0;
+	cursor: pointer;
+	vertical-align: middle;
+}
+
+.disclaimer {
+	width: 399px;
+	display: block;
+	margin-top: 18px;
+}
+
+#disc {
+	font-family: 'Freight Sans Bold', Helvetica, Arial;
+	color: #777;
+	font-size: 11px;
+	width: 316px;
+
+}
+
+.why:hover {
+	text-decoration: underline;
+}
+
+.submit {
+	font-family: 'Freight Sans Bold', Helvetica, Arial;
+	font-size: 19px;
+	font-weight: bold;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding: 7px 20px;
+	text-align: center;
+	line-height: 126%;
+	background: linear-gradient(#67ae55, #578843);
+	background-color: #69a74e;
+	box-shadow: inset 0 1px 1px #a4e388;
+	border-radius: 5px;
+	color: #fff;
+	cursor: pointer;
+	text-shadow: 0 1px 2px rgba(0,0,0,.5);
+	border: 1px solid #2c5115;
+	min-width: 194px;
+}
+
+.submit:hover {
+	background: linear-gradient(#71c15d, #578843);
+    outline: none;
+    -webkit-box-shadow: inset 0px 0px 4px #ccc;
+    -moz-box-shadow: inset 0px 0px 4px #ccc;
+    box-shadow: inset 0px 0px 4px #ccc;
+}
+
+.band {
+	font-family: 'Freight Sans Bold', Helvetica, Arial;
+	border-top: 1px solid #dddfe2;
+	color: #666;
+	font-size: 13px;
+	font-weight: bold;
+	margin-top: 10px;
+	padding-top: 15px;
+	padding-bottom: 50px;
+}
+
+#b {
+	color: #365899;
+	cursor: pointer;
+	text-decoration: none;
+	font-size: 13px;
+	font-weight: bold;
+}
+
+#b:hover {
+	text-decoration: underline;
+}
