@@ -15,7 +15,7 @@ export class HeaderLoginComponent implements OnInit {
   }
 
   onSubmit(){
-  	alert("This is not Facebook, This was created as a practice project by Dorian Bramarov using Angular2. Your username is '" + this.user.username + "' and password is '" + this.user.password + "' ...Thanks! :)")
+  	alert("This is not Facebook! This was created as a practice project by Dorian Bramarov using Angular2. Your username is '" + this.user.username + "' and password is '" + this.user.password + "' ...Thanks! :)")
   	this.user = {
   	username: '',
   	password: ''

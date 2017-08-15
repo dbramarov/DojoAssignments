@@ -4,7 +4,7 @@
 			<h2 class="inline" style="padding-bottom: 0px;">Connect with friends and the</h2>
 			<h2 class="inline" style="padding-top: 0px;">world around you on Facebook.</h2>
 			<div class="leftText">
-				<div class="img">				
+				<div class="img">
 					<img src="https://scontent-lga3-1.xx.fbcdn.net/v/t39.2365-6/851565_602269956474188_918638970_n.png?oh=d90db166c0ba29890cd3bf49a6660b42&oe=5A37A7F5">
 				</div>
 				<div class="txt">
@@ -13,7 +13,7 @@
 				</div>
 			</div>
 			<div class="leftText">
-				<div class="img">				
+				<div class="img">
 					<img src="https://scontent-lga3-1.xx.fbcdn.net/v/t39.2365-6/851585_216271631855613_2121533625_n.png?oh=f30dfd4b9f1da6aba8f540ecad7ac6f5&oe=59EF1220">
 				</div>
 				<div class="txt">
@@ -22,15 +22,15 @@
 				</div>
 			</div>
 			<div class="leftText">
-				<div class="img">				
+				<div class="img">
 					<img src="https://scontent-lga3-1.xx.fbcdn.net/v/t39.2365-6/851558_160351450817973_1678868765_n.png?oh=9da52b05217fc388cabc012ea3ae5acf&oe=59F7E8D8">
 				</div>
 				<div class="txt">
 					<span class="span1">Find more</span>
 					<span class="span2">of what you're looking for with Facebook Search.</span>
 				</div>
-			</div>	
-<!-- 			{{user | json}}
+			</div>
+			<!-- 			{{user | json}}
 			<hr>
 			{{users | json}} -->
 		</div>
@@ -41,11 +41,10 @@
 				<input style="margin-right: 5px;" class="inputH" type="text" placeholder="First Name" required name="firstName" [(ngModel)]='user.firstName' #firstName="ngModel">
 				<input class="inputH" type="text" placeholder="Last Name" required name="lastName" [(ngModel)]='user.lastName' #lastName="ngModel">
 				<input class="inputF" type="text" placeholder="Mobile number or email" required name="numEmail" [(ngModel)]='user.numEmail' #numEmail="ngModel">
-				<input class="inputF" type="text" placeholder="New password" name="password"
-				[(ngModel)]='user.password' #password="ngModel">	
+				<input class="inputF" type="text" placeholder="New password" name="password" [(ngModel)]='user.password' #password="ngModel">
 				<div id="bday">Birthday</div>
-				<div class="datesDiv">	
-				<span style="display: inline-block;">
+				<div class="datesDiv">
+					<span style="display: inline-block;">
 					<select name="bdayM" [(ngModel)]='user.bdayM' #bdayM="ngModel" required>
 						<option value="0" selected>Month</option>
 						<option value="1">Jan</option>
@@ -62,7 +61,7 @@
 						<option value="12">Dec</option>
 					</select>
 				</span>
-				<span style="display: inline-block;">
+					<span style="display: inline-block;">
 					<select name="bdayD" [(ngModel)]='user.bdayD' #bdayD="ngModel" required>
 						<option value="0">Day</option>
 						<option value="1">1</option>
@@ -98,7 +97,7 @@
 						<option value="31">31</option>
 					</select>
 				</span>
-				<span style="display: inline-block;">	
+					<span style="display: inline-block;">
 					<select name="bdayY" [(ngModel)]='user.bdayY' #bdayY="ngModel" required>
 						<option value="0">Year</option>
 						<option value="2017">2017</option>
@@ -234,9 +233,10 @@
 					</span>
 				</div>
 				<div class="disclaimer">
-					<p id="disc">By clicking Create Account, you agree to our <span style="margin: 0;" class="why">Terms</span> ad that you have read our <span style="margin: 0;" class="why">Data Policy</span>, including our <span style="margin: 0;" class="why">Cookie Use</span>. You may receive SMS Notifications from Facebook and can opt out at any time.</p>
+					<p id="disc">By clicking Create Account, you agree to our <span style="margin: 0;" class="why">Terms</span> ad that you have read our <span style="margin: 0;" class="why">Data Policy</span>, including our <span style="margin: 0;" class="why">Cookie Use</span>.
+						You may receive SMS Notifications from Facebook and can opt out at any time.</p>
 				</div>
-				<input type="submit" value="Create Account" class="submit">
+				<input type="submit" value="Create Account" class="account">
 			</form>
 			<div class="band">
 				<a id="b" href="https://www.facebook.com/pages/create/?ref_type=registration_form">Create a Page</a> for a celebrity, band or business.

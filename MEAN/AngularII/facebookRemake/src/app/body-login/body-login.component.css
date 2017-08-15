@@ -189,17 +189,16 @@ select {
 	color: #777;
 	font-size: 11px;
 	width: 316px;
-
 }
 
 .why:hover {
 	text-decoration: underline;
 }
 
-.submit {
+.account {
 	font-family: 'Freight Sans Bold', Helvetica, Arial;
 	font-size: 19px;
-	font-weight: bold;
+	font-weight: bold;	
 	margin-top: 10px;
 	margin-bottom: 10px;
 	padding: 7px 20px;
@@ -216,7 +215,7 @@ select {
 	min-width: 194px;
 }
 
-.submit:hover {
+.account:hover {
 	background: linear-gradient(#71c15d, #578843);
     outline: none;
     -webkit-box-shadow: inset 0px 0px 4px #ccc;
