@@ -11,7 +11,7 @@
 
 
 <ul>
-  <li class="large" *ngFor="let num of myArr">{{num}}</li>
+  <li class="large" *ngFor="let num of myArr">{{num*2}}</li>
 </ul>
 
 
@@ -31,4 +31,14 @@
     <h2><a target="_blank" href="http://angularjs.blogspot.ca/">Angular blog</a></h2>
   </li>
 </ul>
+
+<div class="container">
+    <input type="text" #inputinfo [(ngModel)]="model">
+    <button class="green" (click)="onClick(inputinfo)">Submit</button>  
+    <button class="red" (click)="clear()">Clear</button>  
+</div>
+
+<div class="container">
+  <p *ngFor="let i of myinfo">{{i}}</p>
+</div>
 

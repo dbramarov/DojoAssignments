@@ -1,0 +1,36 @@
+<!--The whole content below can be removed with the new code.-->
+<div style="text-align:center">
+  <h1>{{title}}</h1>
+  <p>Lookup information on individuals by supplying there <strong>Email</strong> or <strong>Phone Number</strong> below</p>
+  <hr>
+<div class="left">
+  <form (submit)="onSubmitE()">
+    <p>Email: <input name="email" [(ngModel)]='person.email' #email="ngModel" required type="text" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"></p>
+    <div style="color: red; display: inline-block;" *ngIf="email.errors">*Email is required and must be proper format</div>
+    <p><input *ngIf="email.valid; else dis" type="submit" value="Find Email" style="width: 300px; height: 40px;"></p>
+    <ng-template #dis><input type="submit" value="Find Email"  style="width: 300px; height: 40px; background-color: silver;" disabled></ng-template>
+  </form>
+</div>
+<div class="right">
+  <form (submit)="onSubmitP()">
+    <p>Phone: <input name="phone" [(ngModel)]='person.phone' #phone="ngModel" required type="text" minlength="10" maxlength="10"></p>
+    <div style="color: red; display: inline-block;" *ngIf="phone.errors">*Phone is required and must be 10 digets long</div>
+    <p><input *ngIf="phone.valid; else one" type="submit" value="Find Phone" style="width: 300px; height: 40px;"></p>
+    <ng-template #one><input type="submit" value="Find Phone"  style="width: 300px; height: 40px; background-color: silver;" disabled></ng-template>
+  </form>
+</div>
+
+  <p>{{info|json}}</p>
+ <hr>
+ <p>EMAIL ERR: {{emailErr|json}}</p>
+ <p>PHONE ERR: {{phoneErr|json}}</p>
+ 
+<div class="display">
+  <h1>{{info.contactInfo.fullName}}</h1>
+  <img *ngIf="info.photos[0].url" width="200" height="200" class="img" src="{{info.photos[0].url}}">
+  <img *ngIf="info.photos[0].url" width="200" height="200" class="img" src="{{info.photos[1].url}}">
+  <p *ngIf="info.demographics.ageRange">Age Range: {{info.demographics.ageRange}}</p>
+  <p *ngIf="info.demographics.gender">Gender: {{info.demographics.gender}}</p>
+</div>
+
+<router-outlet></router-outlet>

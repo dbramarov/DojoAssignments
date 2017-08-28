@@ -1,0 +1,22 @@
+/** {
+  border: 1px dashed blue;
+}*/
+
+.left {
+  display: inline-block;
+  margin-right: 30px;
+  margin-top: 25px;
+}
+
+.right {
+  display: inline-block;
+}
+
+.display {
+  width: 1000px;
+  margin: 25px auto;
+}
+
+.img {
+  border: 1px solid black;
+}

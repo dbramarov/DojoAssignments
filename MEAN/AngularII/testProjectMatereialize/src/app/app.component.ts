@@ -13,4 +13,14 @@ export class AppComponent {
   };
   myArr = [ 1,2,3,4,5,6,7 ];
   myBool: boolean = true;
+  model = {}
+  myinfo: Array<string> = []
+
+  onClick(info){
+    this.myinfo.push(info.value);
+  }
+
+  clear(){
+    this.myinfo = [];
+  }
 }
