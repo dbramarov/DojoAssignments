@@ -7,32 +7,35 @@ import { FullContactService } from './full-contact.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(private _httpService: FullContactService){}
-  title = 'Project FindR';
+  title= 'Project FindR';
   info = [];
   person = {
-    email:'',
-    phone:''
-  }
-  emailErr;
-  phoneErr;
+    email: '',
+    phone: ''
+  };
+  emailErr: any;
+  phoneErr: any;
 
-  onSubmitE(){
-    this._httpService.retrievePersonEmail(this.person.email)
-    .then( info => { this.info = info })
-    .catch( err => { this.emailErr = err })
-    this.person = {
-        email:'',
-        phone:''
-    }
+  constructor(private _httpService: FullContactService) {}
+
+  onSubmitE() {
+      this._httpService.retrievePersonEmail(this.person.email)
+      .then( info => {this.info = info})
+      .catch( err => { this.emailErr = err })
+      this.person = {
+          email: '',
+          phone: ''
+      }
   }
-  onSubmitP(){
-    this._httpService.retrievePersonPhone(this.person.phone)
-    .then( info => { this.info = info })
-    .catch( err => { this.phoneErr = err })
-    this.person = {
-        email:'',
-        phone:''
-    }
-  }
+
+  // onSubmitP() {
+  //   this._httpService.retrievePersonPhone(this.person.phone)
+  //   .then( info => { this.info = info })
+  //   .catch( err => { this.phoneErr = err })
+  //   this.person = {
+  //       email: '',
+  //       phone: ''
+  //   }
+  // }
+
 };

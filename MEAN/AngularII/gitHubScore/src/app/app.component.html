@@ -9,9 +9,8 @@
       <div style="color: red; display: inline-block; vertical-align: top;" *ngIf="name.errors">*Username Required</div>
     </div>
     <input *ngIf="name.valid; else dis" style="margin-top: 30px; width: 250px; height: 40px;" type="submit" value="Calculate My GitHub Score">
-    <template #dis><input style="margin-top: 30px; width: 250px; height: 40px; background-color: silver;" type="submit" value="Calculate My GitHub Score"
-        disabled></template>
+    <ng-template #dis><input style="margin-top: 30px; width: 250px; height: 40px; background-color: silver;" type="submit" value="Calculate My GitHub Score"
+        disabled></ng-template>
   </form>
   <h2>Your Score: {{score}}</h2>
-
 </div>

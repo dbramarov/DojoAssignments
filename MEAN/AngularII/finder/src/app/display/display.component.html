@@ -1,0 +1,10 @@
+<div *ngIf="EmailInfo; else error" class="display">
+  <h1>{{EmailInfo.contactInfo.fullName}}</h1>
+  <img width="200" height="200" class="img" src="{{EmailInfo.photos[0].url}}">
+  <img width="200" height="200" class="img" src="{{EmailInfo.photos[1].url}}">
+  <p>Age Range: {{EmailInfo.demographics.ageRange}}</p>
+  <p>Gender: {{EmailInfo.demographics.gender}}</p>
+  <p>Social Profiles: {{profile}}</p>
+</div>
+
+{{EmailInfo|json}}

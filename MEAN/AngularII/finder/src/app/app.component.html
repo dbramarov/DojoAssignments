@@ -21,16 +21,7 @@
 </div>
 
   <p>{{info|json}}</p>
- <hr>
- <p>EMAIL ERR: {{emailErr|json}}</p>
- <p>PHONE ERR: {{phoneErr|json}}</p>
- 
-<div class="display">
-  <h1>{{info.contactInfo.fullName}}</h1>
-  <img *ngIf="info.photos[0].url" width="200" height="200" class="img" src="{{info.photos[0].url}}">
-  <img *ngIf="info.photos[0].url" width="200" height="200" class="img" src="{{info.photos[1].url}}">
-  <p *ngIf="info.demographics.ageRange">Age Range: {{info.demographics.ageRange}}</p>
-  <p *ngIf="info.demographics.gender">Gender: {{info.demographics.gender}}</p>
-</div>
 
-<router-outlet></router-outlet>
+  <hr>
+
+<app-display [EInfo]="info"></app-display>
