@@ -19,6 +19,10 @@ export class AppComponent implements OnInit {
         })
     }
 
+    delete(index) {
+        this.allForms.splice(index, 1);
+    }
+
     onSubmit() {
         console.log(this.signupForm);
         this.allForms.push(this.signupForm);

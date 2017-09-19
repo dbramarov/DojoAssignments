@@ -31,11 +31,17 @@
     <div class="panel panel-primary">
         <div class="panel-heading"><h2 class="hdr">Form Data: </h2></div>
         <div class="panel-body">
-            <div *ngFor="let info of allForms">
-                <h5><strong>Email:</strong> {{info.value.email}}</h5>
-                <h5><strong>Password:</strong> {{info.value.password}}</h5>
-                <h5><strong>Remember:</strong> {{info.value.remember}}</h5>
-                <hr>
+            <div class="container cont" *ngFor="let info of allForms; let i = index">
+                <div class="row">
+                    <div class="col-md-3">
+                        <h5><strong>Email:</strong> {{info.value.email}}</h5>
+                        <h5><strong>Password:</strong> {{info.value.password}}</h5>
+                        <h5><strong>Remember:</strong> {{info.value.remember}}</h5>
+                    </div>
+                    <div class="col-md-9">
+                        <button (click)="delete(i)" type="button" class="btn btn-danger cent">Delete</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

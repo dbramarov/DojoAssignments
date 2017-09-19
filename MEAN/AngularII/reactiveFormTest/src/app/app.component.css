@@ -1,0 +1,14 @@
+/* * {
+    border: 1px solid red;
+} */
+
+.cent {
+    margin-top: 25px;
+}
+
+.cont {
+    border-bottom: 1px solid rgba(40, 40, 40, 0.44);
+    width: 100%;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
