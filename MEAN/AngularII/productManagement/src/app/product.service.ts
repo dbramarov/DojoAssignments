@@ -19,7 +19,7 @@ observedItems = new BehaviorSubject([
     price: '1500000',
     image: 'http://www.mansory.com/files/media/mansory/sliders/bugatti-vivere.png',
     location: 'Miami Florida',
-    description: 'One of the fastest street legal cars in the world. 100k miles. Brand new tires!'},
+    description: 'One of the fastest street legal cars in the world. 100k miles.'},
 ]);
 
 updateItems(items: Array<any>) {

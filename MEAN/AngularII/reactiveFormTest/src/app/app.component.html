@@ -1,45 +1,77 @@
 <div class="container" style="margin-top: 30px;">
-    <div class="panel panel-primary">
-        <div class="panel-heading"><h2 class="hdr">Reactive Form:</h2></div>
-        <div class="panel-body">
-            <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
-                <div class="form-group">
-                    <label for="email">Email Address: </label>
-                    <input 
-                        type="text"
-                        class="form-control" 
-                        id="email"
-                        formControlName="email">
-                        <span *ngIf="!signupForm.get('email').valid && signupForm.get('email').touched" class="help-block">Please enter a valid email!</span>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading"><h2 class="hdr">Reactive Form:</h2></div>
+                <div class="panel-body">
+                    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+                        <div class="form-group">
+                            <label for="email">Email Address: </label>
+                            <input 
+                                type="text"
+                                class="form-control" 
+                                id="email"
+                                formControlName="email">
+                                <span *ngIf="!signupForm.get('email').valid && signupForm.get('email').touched" class="help-block">Please enter a valid email!</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password: </label>
+                            <input 
+                                type="password" 
+                                class="form-control" 
+                                id="password"
+                                formControlName="password">
+                                <span *ngIf="!signupForm.get('password').valid && signupForm.get('password').touched" class="help-block">Password must be minimum 6 characters!</span>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" formControlName="remember">Remember me </label>
+                        </div>
+                        <button [disabled]="!signupForm.valid" class="btn btn-primary btn-block" type="submit">Submit</button>
+                    </form>
                 </div>
-                <div class="form-group">
-                    <label for="password">Password: </label>
-                    <input 
-                        type="password" 
-                        class="form-control" 
-                        id="password"
-                        formControlName="password">
-                        <span *ngIf="!signupForm.get('password').valid && signupForm.get('password').touched" class="help-block">Password must be minimum 6 characters!</span>
+            </div>
+            <button type="button" class="btn btn-default btn-block" data-toggle="modal" data-target="#exampleModal">Project Info</button>
+            <div style="margin-top:200px;" class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h3 class="modal-title" id="exampleModalLabel">INFO:</h3>
+                    <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button> -->
+                  </div>
+                  <div class="modal-body">
+                    <strong>This project demonstrates:</strong>
+                    <hr>
+                      <ul>
+                          <li>Reactive forms</li>
+                          <li>Custom pipe</li>
+                          <li>Bootstrap: panels</li>
+                          <li>Bootstrap: modals</li>
+                      </ul>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                  </div>
                 </div>
-                <div class="checkbox">
-                    <label><input type="checkbox" formControlName="remember">Remember me </label>
-                </div>
-                <button [disabled]="!signupForm.valid" class="btn btn-primary" type="submit">Submit</button>
-            </form>
+              </div>
+            </div>
         </div>
-    </div>
-    <div class="panel panel-primary">
-        <div class="panel-heading"><h2 class="hdr">Form Data: </h2></div>
-        <div class="panel-body">
-            <div class="container cont" *ngFor="let info of allForms; let i = index">
-                <div class="row">
-                    <div class="col-md-3">
-                        <h5><strong>Email:</strong> {{info.value.email}}</h5>
-                        <h5><strong>Password:</strong> {{info.value.password}}</h5>
-                        <h5><strong>Remember:</strong> {{info.value.remember}}</h5>
-                    </div>
-                    <div class="col-md-9">
-                        <button (click)="delete(i)" type="button" class="btn btn-danger cent">Delete</button>
+        <div class="col-sm-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading"><h2 class="hdr">Form Data: </h2></div>
+                <div class="panel-body">
+                    <div class="container cont" *ngFor="let info of allForms; let i = index">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <h5><strong>Email:</strong> {{info.value.email | shorten:7}}</h5>
+                                <h5><strong>Password:</strong> {{info.value.password | shorten:7}}</h5>
+                                <h5><strong>Remember:</strong> {{info.value.remember}}</h5>
+                            </div>
+                            <div class="col-md-7">
+                                <button (click)="delete(i)" type="button" class="btn btn-danger cent">Delete</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

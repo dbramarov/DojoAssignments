@@ -10,11 +10,11 @@
 		        </div>
 		        <div class="card-content" style="padding-top: 12px;">
 							<div class="row">
-								<div class="col s12 m9 custom">
+								<div class="col s12 m8 custom">
 									<h5 style="padding-bottom: 10px;">{{item.price | currency: 'usd':true }}</h5>
 									<p><strong>{{item.description}}</strong></p>
 								</div>
-								<div class="col s12 m3 desc">
+								<div class="col s12 m4 desc">
 									<div class="cent"><button (click)="edit(idx)" class="btn waves-effect waves-light margin ">EDIT</button></div>
 									<div class="cent"><button (click)="delete(idx)" class="btn red waves-effect waves-light ">DELETE</button></div>
 								</div>
