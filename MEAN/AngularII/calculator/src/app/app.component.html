@@ -1,0 +1,39 @@
+<div class="bdy">
+    <div class="container">
+        <div class="body bg-primary hoverable">
+            <div class="display">
+                <h1 class="nums">{{num | shorten}}</h1>
+            </div>
+            <div class="row">
+                <div class="col-sm-3 btn" (click)="clear()"><h1>CE</h1></div>
+                <div class="col-sm-3 btn" (click)="clear()"><h1>C</h1></div>
+                <div class="col-sm-3 btn" (click)="backk()"><h1><<<</h1></div>
+                <div class="col-sm-3 btn" (click)="divide()"><h1>/</h1></div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3 btn" (click)="seven()"><h1>7</h1></div>
+                <div class="col-sm-3 btn" (click)="eight()"><h1>8</h1></div>
+                <div class="col-sm-3 btn" (click)="nine()"><h1>9</h1></div>
+                <div class="col-sm-3 btn" (click)="times()"><h1>*</h1></div>
+            </div> 
+            <div class="row">
+                <div class="col-sm-3 btn" (click)="four()"><h1>4</h1></div>
+                <div class="col-sm-3 btn" (click)="five()"><h1>5</h1></div>
+                <div class="col-sm-3 btn" (click)="six()"><h1>6</h1></div>
+                <div class="col-sm-3 btn" (click)="minus()"><h1>-</h1></div>
+            </div> 
+            <div class="row">
+                <div class="col-sm-3 btn" (click)="one()"><h1>1</h1></div>
+                <div class="col-sm-3 btn" (click)="two()"><h1>2</h1></div>
+                <div class="col-sm-3 btn" (click)="three()"><h1>3</h1></div>
+                <div class="col-sm-3 btn" (click)="plus()"><h1>+</h1></div>
+            </div> 
+            <div class="row">
+                <div class="col-sm-3 btn" (click)="flip()"><h1>+\-</h1></div>
+                <div class="col-sm-3 btn" (click)="zero()"><h1>0</h1></div>
+                <div class="col-sm-3 btn" (click)="dec()"><h1>.</h1></div>
+                <div class="col-sm-3 btn" (click)="equal()"><h1>=</h1></div>
+            </div>
+        </div>
+    </div>
+</div>
