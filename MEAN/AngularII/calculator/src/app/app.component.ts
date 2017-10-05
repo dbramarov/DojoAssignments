@@ -6,10 +6,15 @@ import { Component, HostListener } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  num: any = '0';
-  operatorPOS;
+    num: any = '0';
+    operatorPOS;
+    history = [];
 
-  one() {
+    clearHist() {
+        this.history = [];
+    }
+
+    one() {
       if (this.num == '0') {
           this.num = 1;
       } else {
@@ -92,6 +97,7 @@ export class AppComponent {
         this.num = this.num + '' + 0;
     }
   }
+
 
   clear() {
       this.num = '0';
@@ -213,7 +219,9 @@ export class AppComponent {
     for (let i = this.operatorPOS + 1; i < this.num.length; i++) {
         second = second + this.num[i];
     }
+    const hist: string = first + op + second;
     answer = eval(first + op + second);
+    this.history.push(hist + ' = ' + answer);
     this.num = answer.toString();
   }
 

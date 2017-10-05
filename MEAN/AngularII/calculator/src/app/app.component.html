@@ -5,34 +5,44 @@
                 <h1 class="nums">{{num | shorten}}</h1>
             </div>
             <div class="row">
-                <div class="col-sm-3 btn" (click)="clear()"><h1>CE</h1></div>
-                <div class="col-sm-3 btn" (click)="clear()"><h1>C</h1></div>
-                <div class="col-sm-3 btn" (click)="backk()"><h1><<<</h1></div>
-                <div class="col-sm-3 btn" (click)="divide()"><h1>/</h1></div>
+                <div class="col-sm-3 btnn" (click)="clear()"><h1>CE</h1></div>
+                <div class="col-sm-3 btnn" (click)="clear()"><h1>C</h1></div>
+                <div class="col-sm-3 btnn" (click)="backk()"><h1><<<</h1></div>
+                <div class="col-sm-3 btnn" (click)="divide()"><h1>/</h1></div>
             </div>
             <div class="row">
-                <div class="col-sm-3 btn" (click)="seven()"><h1>7</h1></div>
-                <div class="col-sm-3 btn" (click)="eight()"><h1>8</h1></div>
-                <div class="col-sm-3 btn" (click)="nine()"><h1>9</h1></div>
-                <div class="col-sm-3 btn" (click)="times()"><h1>*</h1></div>
+                <div class="col-sm-3 btnn" (click)="seven()"><h1>7</h1></div>
+                <div class="col-sm-3 btnn" (click)="eight()"><h1>8</h1></div>
+                <div class="col-sm-3 btnn" (click)="nine()"><h1>9</h1></div>
+                <div class="col-sm-3 btnn" (click)="times()"><h1>*</h1></div>
             </div> 
             <div class="row">
-                <div class="col-sm-3 btn" (click)="four()"><h1>4</h1></div>
-                <div class="col-sm-3 btn" (click)="five()"><h1>5</h1></div>
-                <div class="col-sm-3 btn" (click)="six()"><h1>6</h1></div>
-                <div class="col-sm-3 btn" (click)="minus()"><h1>-</h1></div>
+                <div class="col-sm-3 btnn" (click)="four()"><h1>4</h1></div>
+                <div class="col-sm-3 btnn" (click)="five()"><h1>5</h1></div>
+                <div class="col-sm-3 btnn" (click)="six()"><h1>6</h1></div>
+                <div class="col-sm-3 btnn" (click)="minus()"><h1>-</h1></div>
             </div> 
             <div class="row">
-                <div class="col-sm-3 btn" (click)="one()"><h1>1</h1></div>
-                <div class="col-sm-3 btn" (click)="two()"><h1>2</h1></div>
-                <div class="col-sm-3 btn" (click)="three()"><h1>3</h1></div>
-                <div class="col-sm-3 btn" (click)="plus()"><h1>+</h1></div>
+                <div class="col-sm-3 btnn" (click)="one()"><h1>1</h1></div>
+                <div class="col-sm-3 btnn" (click)="two()"><h1>2</h1></div>
+                <div class="col-sm-3 btnn" (click)="three()"><h1>3</h1></div>
+                <div class="col-sm-3 btnn" (click)="plus()"><h1>+</h1></div>
             </div> 
             <div class="row">
-                <div class="col-sm-3 btn" (click)="flip()"><h1>+\-</h1></div>
-                <div class="col-sm-3 btn" (click)="zero()"><h1>0</h1></div>
-                <div class="col-sm-3 btn" (click)="dec()"><h1>.</h1></div>
-                <div class="col-sm-3 btn" (click)="equal()"><h1>=</h1></div>
+                <div class="col-sm-3 btnn" (click)="flip()"><h1>+\-</h1></div>
+                <div class="col-sm-3 btnn" (click)="zero()"><h1>0</h1></div>
+                <div class="col-sm-3 btnn" (click)="dec()"><h1>.</h1></div>
+                <div class="col-sm-3 btnn" (click)="equal()"><h1>=</h1></div>
+            </div>
+        </div>
+        <div class="info">
+            <div>
+                <h1 class="his t">History</h1>
+                <h1 style="float:right;" class="btn btn-primary t" (click)="clearHist()">Clear</h1>
+            </div>
+            <hr>
+            <div style="display: block;">
+                <h2 *ngFor="let item of history">{{item}}</h2>
             </div>
         </div>
     </div>
